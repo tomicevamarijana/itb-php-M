@@ -1,0 +1,37 @@
+body{
+    background-color: darksalmon;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+h1{
+    color: red;
+}
+h2{
+    color: blueviolet;
+}
+p{
+    color: green;
+}
+.klasa1{
+    text-align: center;
+}
+.klasaP{
+    text-align: right;
+    font-size: 24px;
+}
+img{
+    border: 2px dashed;
+    width: 400px;
+    height: 300px;
+}
+#idh1{
+    font-family: 'Times New Roman', Times, serif;
+    color: darkgreen;
+}
+
+a:visited{
+    color: green;
+}
+a:hover{
+    color:yellow;
+} /* :hover mora da bude posle :visited*/
