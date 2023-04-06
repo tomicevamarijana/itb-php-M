@@ -39,7 +39,9 @@ div p {
 
     /* div~p isto kao prethodni, samo ne mora odmah da sledi, moze neki drugi tag da bude izmedju*/
 
-
+h4{
+    color:red; /*menjala zbog gita*/
+}
 a:link{
     color: blue;
 }
