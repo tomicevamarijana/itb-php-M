@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 dan-Forme</title>
+</head>
+<body>
+    <form action="test.php" method="get">
+        <input type="hidden" name="id" value="5">
+        <fieldset>
+            <legend>Osnovni podaci</legend>
+            <p>
+                <label for="username">Username: </label>
+                <input type="text" value="marijana" placeholder="username" name="username" id="username" maxlength="5" readonly="readonly">
+            </p>
+            <p>
+                <label for="pass">Password: </label>
+                <input type="password" name="pass" id="pass">
+            </p>           
+        </fieldset>
+        <fieldset>
+            <legend>Dodatni podaci</legend>
+            <p>
+                <label for="age">Age: </label>
+                <input type="number" name="age" id="age" min="0" max="130" step="1">
+            </p>
+            <p>
+                <label for="em">Email: </label>
+                <input type="email" name="em" id="em">
+            </p>
+            <p>
+                <label for="gender">Gender: </label>
+                <input type="radio" name="gender" id="male" value="male"> Male
+                <input type="radio" name="gender" id="female" value="female">Female
+                <input type="radio" name="gender" id="other" value="other"> Other
+            </p>
+            <p>
+                <label for="sub">Subscribe: </label>
+                <input type="radio" name="sub" id="no" value="no" checked="checked"> No
+                <input type="radio" name="sub" id="yes" value="yes">Yes                
+            </p>
+            <p>
+                <label for="course">Course: </label>
+                <input type="checkbox" name="html" id="html" value="html">HTML
+                <input type="checkbox" name="css" id="css" value="css">css
+                <input type="checkbox" name="php" id="php" value="php">PHP
+            </p>
+            <p>
+                <label for="city">City: </label>
+                <select name="city" id="city">
+                    <option value="iz">Izaberi op</option>
+                    <optgroup label="Grad">
+                        <option value="bg">Beograd</option>
+                        <option value="ns">Novi Sad</option>
+                        <option value="ni">Nis</option>
+                    </optgroup>
+                </select>
+            </p>
+
+        </fieldset>
+
+        <p>
+            <input type="submit" value="Submit">
+        </p>
+    </form>
+</body>
+</html>
