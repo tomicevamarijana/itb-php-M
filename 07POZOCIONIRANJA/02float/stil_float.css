@@ -1,0 +1,13 @@
+div{
+    background-color: brown;
+    overflow: hidden;
+}
+p{
+    background-color:aqua;
+    float: right;;  /*nestade div tj iscupa p iz taga*/
+    width: 220px;
+    height: 30px;
+}
+p:nth-child(2n){
+    float:left;
+}
