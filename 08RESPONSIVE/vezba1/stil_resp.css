@@ -1,0 +1,20 @@
+img{
+    width: 50%;
+}
+p{
+    font-size: 24px;
+}
+@media only screen and (max-width:700px){
+    img{
+        width:100%;
+    }
+}
+@media only screen and (min-width:500px) and (max-width:700px){
+    p{
+        color:purple;
+        font-size: 14px;
+    }
+    img{
+        border:1px solid red;
+    }
+} /*ovo je za uredjaje od 500-700*/
