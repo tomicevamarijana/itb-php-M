@@ -1,0 +1,136 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.row{
+    width: 100%;
+    overflow: hidden;
+}
+
+[class*="col-"]{
+    float: left;
+}
+
+
+/*mobilni*/
+ 
+[class*="col-"]{
+    width:100%;
+} 
+
+/*tablet */
+@media only screen and (min-width:600px){
+
+
+
+    
+    .col-1{
+        width: calc(100%/12);
+    }
+    .col-2{
+        width: calc(100%/12*2);
+    }
+    .col-3{
+        width: calc(100%/12*3);
+    }
+    .col-4{
+        width: calc(100%/12*4);
+    }
+    .col-5{
+        width: calc(100%/12*5);
+    }
+    .col-6{
+        width: calc(100%/12*6);
+    }
+    .col-7{
+        width: calc(100%/12*7);
+    }
+    .col-8{
+        width: calc(100%/12*8);
+    }
+    .col-9{
+        width: calc(100%/12*9);
+    }
+    .col-10{
+        width: calc(100%/12*10);
+    }
+    .col-11{
+        width: calc(100%/12*11);
+    }
+    .col-12{
+        width: 100%;
+    }
+
+}
+
+header{
+    background-color: aqua;
+    font-size: 30px;    
+    text-align: center;
+    padding: 20px 0px;
+}
+
+#vmeni ul{
+    list-style-type: none;
+    height: 200px;
+    border: 5px dashed red;
+}
+
+#vmeni ul li{
+    height: calc(100%/3);
+    background-color: aquamarine;
+    padding:10px;
+}
+
+#vmeni ul li a{
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    padding: 10px;
+}
+#vmeni ul li a:hover{
+    background-color: yellow;
+}
+
+#tesla{
+    background-image: linear-gradient(blue,white);
+}
+#tesla p{
+    font-size: 25px;
+    padding:10px;
+}
+
+#photos{
+    height: 300px;
+    width: 100%;
+}
+
+
+#citati{
+    background-image:linear-gradient(blue, white);
+}
+#citati p,h3{
+    padding: 10px;
+    font-size: 30px;
+}
+
+footer{
+    background-color: aqua;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+       
+
+
+
+
+
+
+
+

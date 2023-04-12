@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.row{
+    overflow: hidden;
+    width: 100%;
+}
+[class*="col-"]{
+    float: left;
+}
+#r1{
+    overflow: hidden;
+}
+#r1 div{
+    float:left;
+}
+
+#vmeni ul{
+    list-style-type: none;
+    
+    
+}
+ul li a{
+    color: black;
+    text-decoration: none;
+    /*
+    padding: 10px 0; 
+    display: block;
+    font-size: 18px;*/
+}
+
+
+
