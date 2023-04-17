@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.row{
+    width: 100%;
+    overflow:hidden;
+}
+[class*="col-"]{
+    float: left;
+}
+/*Mobilni*/
+[class*="col-"]{
+    width: 100%;
+}
+
+/*Desktop*/
+@media only screen and (min-width:1000px){
+    .col-1 { width: calc(100%/12); }
+    .col-2 { width: calc(100%/12*2)}
+    .col-3 { width: calc(100%/12*3)}
+    .col-4 { width: calc(100%/12*4)}
+    .col-5 { width: calc(100%/12*5)}
+    .col-6 { width: calc(100%/12*6)}
+    .col-7 { width: calc(100%/12*7)}
+    .col-8 { width: calc(100%/12*8)}
+    .col-9 { width: calc(100%/12*9)}
+    .col-10 { width: calc(100%/12*10)}
+    .col-11 { width: calc(100%/12*11)}
+    .col-12 { width: 100%}
+}
+
+/*stilizovanje elemenata*/
+
+div{
+    background-color: black;
+    border: 1px solid white;    
+}
+
+.purple{
+    background-color: darkmagenta;
+    font-size: 8px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 20px;
+    font-size: 10px;
+    text-align: center;
+}
+#right a{
+    text-align: right;
+}
+#left a{
+    text-align: left;
+}
+span{
+    font-weight: bold;
+}

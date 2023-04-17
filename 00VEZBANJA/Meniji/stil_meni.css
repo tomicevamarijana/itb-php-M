@@ -1,0 +1,70 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.topbar{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+.topbar ul{
+    list-style-type: none;
+    overflow: hidden;    
+}
+.topbar li{
+    float: left;
+    width: calc(100%/4);
+    border: 2px solid white;
+    text-align: center;
+    background-color: brown;    
+}
+.topbar a{
+    color: white;    
+    font-size: 25px;
+    padding: 10px;
+    display: block;
+    text-decoration: none;    
+}
+.topbar a:hover{
+    background-color: darkorange;
+}
+
+/*  padajuci meni */
+.dropdown{
+    display: none;
+}
+
+
+ul li:nth-child(4):hover .dropdown{
+    display:block;
+}
+.dropdown a:hover{
+    background-color:coral;
+}
+
+/* Vertikalni meni */ 
+.vert{
+    width: 30%;
+    position: relative;
+    top:50px;
+}
+.vert ul{
+    list-style-type: none;
+}
+.vert li{
+    background-color: crimson;
+    border: 2px solid white;
+    text-align: center;
+}
+.vert a{
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    color: white;
+    font-size: 25px;
+}
+.vert a:hover{
+    background-color:darkkhaki;
+}

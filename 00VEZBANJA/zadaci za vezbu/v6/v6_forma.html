@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vezba 6-Forma-Payment details</title>
+    <link rel="stylesheet" href="v6_stil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <main>
+        <h1>Your payment details</h1>
+        <form action="test.php" method="get">
+            <div>
+                <label for="name">NAME</label><br>
+                <input type="text" name="name" id="name">
+            </div>
+            <div>
+                <label for="cardnum">CARD NUMBER</label><br>
+                <i class="fa fa-credit-card" aria-hidden="true"></i><input type="text" name="cardnum" id="cardnum">
+            </div>
+            <div>
+                <label for="exdate">EXPIRATION DATE</label><br>
+                <input type="number" name="exdate" id="mm" placeholder="MM"> 
+                <input type="number" name="exdate" id="yy" placeholder="YY">
+            </div>
+            <div>
+                <label for="cvc">CVC</label><br>
+                <input type="number" name="cvc" id="cvc" value="123">
+            </div>
+            <div>
+                <input type="checkbox" name="card" id="card" value="card" checked="checked"> Save my card for future
+                purchases
+            </div>
+            <div>
+                <input type="submit" value="PAY NOW">
+            </div>
+        </form>
+    </main>
+
+</body>
+
+</html>

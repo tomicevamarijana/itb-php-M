@@ -1,0 +1,39 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0
+}
+h1{
+    color:darkmagenta;
+    margin-bottom: 40px;
+}
+main{
+    margin:50px auto;
+    border: 3px solid darkmagenta;
+    width: 30%;
+    padding:20px 30px 20px 10px;
+    font-size: 20px;
+}
+div{
+    margin:10px;
+}
+label{
+    color:gray;
+}
+input[type=email], input[type=password]{
+    border:1px solid gray;
+    width:100%;
+}
+a{
+    color:darkmagenta;
+}
+input[type=button]{
+    cursor:pointer;
+    background-color: darkmagenta;    
+    color:white;
+    padding:16px 32px;
+    font-size: 25px;
+}
+input:focus{
+    opacity:0.7;
+}

@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+table{
+    width: 80%;    
+    margin:auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    
+}
+tr{
+    height: 50px;
+    border: 1px solid red;
+}
+td{    
+    border: 1px solid red;    
+}
+
+.hidden{
+    visibility:collapse;    
+} 
+
+/* jedno resenje za 1.tabelu je da se doda 4.red, i za njega postavi visibility:hidden ; ,a za tabelu se iskljuci border i border-collapse */
+
+
+/* jedno resenje za 3.tabelu je da se doda 4.kolona, klasa hidden3, i za te td se iskljuce borderi */
+/* a iskljuce se borderi i za tabelu, samo se ostavi border-collapse:collapse */
+

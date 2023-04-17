@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+}
+#p1{
+    background-color: yellow;
+}
+#p2{
+    background-color: aquamarine;
+    position: relative;
+    left:100px;    
+}
+#p3{
+    background-color: blueviolet;
+    position: absolute;
+    bottom: 50px;
+    left: 100px;
+}
+#p4{
+    background-color: indianred;
+    position: fixed;
+    top:30px;
+    right: 5px;
+}

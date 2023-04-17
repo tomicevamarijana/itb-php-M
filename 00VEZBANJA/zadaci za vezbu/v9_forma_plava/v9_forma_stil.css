@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+main{
+    border: 1px solid turquoise;
+    width: 30%;
+    margin: 50px auto;
+}
+
+input[type=button]{
+    width: 100%;
+    background-color: darkcyan;
+    color: white;
+    font-size: 30px;
+    padding: 16px 32px;    
+}
+.blue{
+    background-image: url(plava.jpg);
+    background-repeat: repeat;
+}
+input[type=text], input[type=email]{
+    margin: 10px 0;
+    padding: 10px 0;
+    width: 100%;
+}
+textarea{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 10px 0;
+}
+input[type=submit]{
+    width:100%;
+    background-color: darkcyan;
+    color: white;
+    font-size: 20px;
+    padding: 16px 32px;  
+}

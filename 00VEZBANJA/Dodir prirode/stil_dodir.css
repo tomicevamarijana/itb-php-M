@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    font-size: 20px;
+}
+
+.row{
+    width: 100%;
+    overflow: hidden;
+}
+[class*="col-"]{
+    float: left;
+}
+
+/*MOBILNI*/
+[class*="col-"]{
+    width: 100%;
+}
+
+/*desktop */
+
+@media only screen and (min-width:1000px){
+    .col-1 { width: calc(100%/12); }
+    .col-2 { width: calc(100%/12*2)}
+    .col-3 { width: calc(100%/12*3)}
+    .col-4 { width: calc(100%/12*4)}
+    .col-5 { width: calc(100%/12*5)}
+    .col-6 { width: calc(100%/12*6)}
+    .col-7 { width: calc(100%/12*7)}
+    .col-8 { width: calc(100%/12*8)}
+    .col-9 { width: calc(100%/12*9)}
+    .col-10 { width: calc(100%/12*10)}
+    .col-11 { width: calc(100%/12*11)}
+    .col-12 { width: 100%}
+}
+/*desktop */
+
+
+/* STILIZOVANJE HTML ELEMENATA */
+
+header, footer{
+    background-color: aqua;
+    text-align: center;
+    padding: 10px;
+}
+nav ul{
+    list-style-type: none;
+}
+nav li{
+    background-color: aqua;
+    border: 1px solid white;    
+}
+
+nav li a{
+    text-decoration: none;
+    display: block;
+    color: black;    
+    padding: 10px;
+}
+main{
+    background-image: linear-gradient(aqua, white);
+    padding:10px;
+}
+img{
+    width: 100%;
+}
+img:hover{
+    opacity: 0.8;
+}
+.citati{
+    background-image: linear-gradient(aqua, white);
+    padding: 15px;    
+}
+
+.citati h1{
+    padding-top: 20px; 
+    padding-bottom: 20px;    
+}
+

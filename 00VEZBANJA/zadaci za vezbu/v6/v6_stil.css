@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+main{
+    margin: 50px auto;
+    width: 50%;
+    padding: 20px;
+    border:1px solid red;
+}
+input[type=text], input[type=number] {
+    border: none;
+    border-bottom: 1px solid black;
+}
+div{
+    margin:20px;
+}
+input[type=submit]{
+    background-color: green;
+    color: white;
+    border:none;
+    padding: 16px 32px;
+    cursor:pointer;
+    box-shadow: 5px 10px gray;
+}
+input:focus{
+    background-color: gray;
+}
