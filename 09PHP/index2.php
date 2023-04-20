@@ -58,5 +58,7 @@
     echo "Neiskoriscenih je ".$ostatak;
     echo "<hr>"; /*koristan za pravljenje galerije npr */
 
+   
+
 
 ?>
