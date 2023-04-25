@@ -235,11 +235,11 @@
     echo"<p><b>Zadatak 11</b></p>";
     echo"<p>Odrediti sa koliko brojeva je deljiv uneti broj k.</p>";
     $i=1;
-    $k=10;
+    $k=15;
     $br=0;
     while($i<=$k){
         if($k%$i==0){
-            $br=$br+1;
+            $br=$br+1; //$br++;
         }        
         $i++;
     }
@@ -249,7 +249,7 @@
      echo"<p><b>Zadatak 12</b></p>";
      echo"<p>Odrediti da li je dati prirodan broj n prost. Broj je prost ako je deljiv samo sa jedan i sa samim sobom. </p>";
      $i=1;
-     $n=10;
+     $n=13;
      $br=0;
      while($i<=$n){
         if($n%$i==0){
@@ -257,12 +257,102 @@
         }
         $i++;
      }
-     if($br<=2){
+     if($br==2){ //ne ide <=2 jer 1 nije prost
         echo"<p>Broj $n je prost broj.</p>";
      }
      else{
         echo"<p>Broj $n nije prost broj.</p>";
      }
+
+     //Drugi nacin
+     echo"<p><b>Zadatak 12-drugi nacin</b></p>";
+
+     $k=7;
+     $i=2;
+     $br=0;
+     $prost=true; //pretpostavka da je br.prost
+     while($i<=$k){ //moze i do $k/2, ili sqrt($k)-u tom slucaju MORA $i<=..
+        if($k%$i==0){
+            $prost=false;
+            break; //kad nema potrebe da se while vrti do kraja(ugl imamo pretpostavku pre while)
+        }
+        $i++;
+     }
+     if($prost==true){ //if($prost) -moze i ovako
+        echo"<p>Broj $k je prost broj.</p>";
+     }
+     else{
+        echo"<p>Broj $k nije prost broj.</p>";
+     }
+
+     //13 zadatak
+     echo"<p><b>Zadatak 13</b></p>";
+     echo"<p>Množiti sve brojeve od 20 ka 1, sve dok proizvod ne predje 10.000. 
+     Prikazati konacan rezultat crvenom bojom a poslednje pomnozeni broj - zelenom.</p>";
+     $i=20;
+     $p=1;
+     while($i>=1){
+        $p=$p*$i;
+        if($p>10000){
+            break;
+        }
+        //echo"<p> $i </p>";
+        //echo"<p> $p </p>";
+        $i--;
+     }
+     echo"<p>Broj $i je poslednji koji je ucestvovao u mnozenju.</p>";
+     echo"<p>Broj $p je poslednji proizvod.</p>";
+     
+     //konacno
+     $cinilac=$i+1;
+     $proizvod=$p/$i;
+
+     echo"<p>Za vrednost <span style='color:green;'> $cinilac </span> proizvod <span style='color:red;'> $proizvod</span> je dostigao 10 000.</p>";
+
+
+     //14 zadatak
+     echo"<p><b>Zadatak 14</b></p>";
+     echo"<p>Uneti 2 broja. Ukoliko je prvi broj manji od drugog broja, množiti prvi broj samim sobom, sve dok rezultat ne bude veći od drugog unetog broja. U suprotnom na ekranu ispisati “GREŠKA”.</p>";
+     
+     //moje
+     $x=8;
+     $y=132;
+     $p=1;     
+     if($x<$y){
+        
+        while($p<$y){
+            $p=$p*$x;                                
+        }        
+        echo $p;
+     }
+     else{
+        echo"<p>GRESKA</p>";
+     }
+     
+    
+     echo"<p><b>Zadatak 14-sredjan</b></p>";
+    //srdjan-deluje ok nacin
+    
+    $n = 8;
+    $m= 132;
+    if($n < $m){
+        $rez = $n;
+        while($rez <= $m){
+            $rez *= $n;
+        }
+        echo $rez;
+    } else {
+    echo "<p>Greska</p>";
+    }
+    
+
+     
+     
+
+
+
+
+
     
 
     
