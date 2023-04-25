@@ -13,7 +13,7 @@
  //b.Svaki u novom redu
     echo"<p>Zadatak 1</p>";
 
-    echo"<p>Zadatak 1. b</p>";
+    echo"<p><b>Zadatak 1</b></p>";
     $i=1;
     while($i<=20){
         echo"$i ";
@@ -39,7 +39,7 @@
     //$i-=1;
     //$i-1;
 
-    echo"<p>Zadatak 2</p>";
+    echo"<p><b>Zadatak 2</b></p>";
     $i=20;
     while($i>=1){
         echo"$i ";
@@ -48,7 +48,7 @@
     echo"<i>$i</i>"; //nakon izvrsenja petlje $i je 0;
     
     //Zadatak 4.
-    echo"<p>Zadatak 4</p>";
+    echo"<p<b>Zadatak 4</b></p>";
     echo"<p>Kreirati n paragrafa sa proizvoljnim tekstom 
     i naizmenično ih obojiti u tri različite boje</p>";
     echo"<p>Zadatak 4-PRVI NACIN</p>";
@@ -100,7 +100,7 @@
         $i++;
     }
 
-    echo"<p>Zadatak 3</p>";
+    echo"<p><b>Zadatak 3</b></p>";
     echo"<p>Ispisati parne brojeve od 1 do 20.</p>";
     $i=1;
     while($i<=20){
@@ -111,7 +111,7 @@
     }
     //moglo je sa brojacom $i=$i+2; bez if-a
 
-    echo"<p>Zadatak 5</p>";
+    echo"<p><b>Zadatak 5</b></p>";
     echo"<p>Kreirati n proizvoljnih slika i staviti im naizmenično dva različita okvira</p>";
     $n=4;
     $i=1;
@@ -158,7 +158,7 @@
     }
 
     //6.zadatak
-    echo"<p>Zadatak X</p>";
+    echo"<p><b>Zadatak 6</b></p>";
     echo"<p>Odrediti sumu brojeva od 1 do 100.</p>";
     $i=1;
     $s=0;
@@ -169,7 +169,7 @@
     echo"<p>Suma brojeva od 1 do 100 je: $s</p>";
 
     //7 zadatak
-    echo"<p>Zadatak 7</p>";
+    echo"<p><b>Zadatak 7</b></p>";
     echo"<p>Odrediti sumu brojeva od 1 do n.</p>";
     
     $i=1;
@@ -182,7 +182,7 @@
     echo"<p>Suma brojeva od 1 do $n je: $s</p>";
 
     //8 zadatak
-    echo"<p>Zadatak 8</p>";
+    echo"<p><b>Zadatak 8</b></p>";
     echo"<p>Odrediti sumu brojeva od n do m</p>";
 
     $n=2;
@@ -201,7 +201,7 @@
     echo"<p>Suma brojeva od $pom do $m je: $s</p>";
 
     //9 zadatak
-    echo"<p>Zadatak 9</p>";
+    echo"<p><b>Zadatak 9</b></p>";
     echo"<p>Odrediti proizvod brojeva od n do m.</p>";
     $n=$i=5;
     $m=7;
@@ -213,7 +213,7 @@
     echo"<p>Proizvod brojeva od $n do $m je: $p</p>";
 
     //10 zadatak
-    echo"<p>Zadatak 10</p>";
+    echo"<p><b>Zadatak 10</b></p>";
     echo"<p>Odrediti sumu kvadrata parnih i sumu kubova neparnih brojeva od n do m</p>";
     $n=$i=1;
     $m=4;
@@ -232,17 +232,37 @@
     echo"<p>Suma kubova neparnih brojeva od $n do $m je: $sN</p>";
 
     //11 zadatak
-    echo"<p>Zadatak 11</p>";
+    echo"<p><b>Zadatak 11</b></p>";
     echo"<p>Odrediti sa koliko brojeva je deljiv uneti broj k.</p>";
     $i=1;
     $k=10;
     $br=0;
     while($i<=$k){
-        if($k%$i==0)
-        $br=$br+1;
+        if($k%$i==0){
+            $br=$br+1;
+        }        
         $i++;
     }
     echo"<p>Broj $k deljiv je sa $br broja</p>";
+
+     //12 zadatak
+     echo"<p><b>Zadatak 12</b></p>";
+     echo"<p>Odrediti da li je dati prirodan broj n prost. Broj je prost ako je deljiv samo sa jedan i sa samim sobom. </p>";
+     $i=1;
+     $n=10;
+     $br=0;
+     while($i<=$n){
+        if($n%$i==0){
+            $br=$br+1;
+        }
+        $i++;
+     }
+     if($br<=2){
+        echo"<p>Broj $n je prost broj.</p>";
+     }
+     else{
+        echo"<p>Broj $n nije prost broj.</p>";
+     }
     
 
     
