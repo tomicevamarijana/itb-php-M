@@ -89,84 +89,188 @@
     $n=6;
     for($i=1;$i<=$n;$i++){
         if($i%3==0){
-            echo "<p><img src='1.jpg' alt='prva'></p>";
+            echo "<img src='1.jpg' alt='prva'>";
         }
         elseif($i%3==1){
-            echo "<p><img src='2.jpg' alt='druga'></p>";
+            echo "<img src='2.jpg' alt='druga'>";
         }
         else{
-            echo "<p><img src='3.jpg' alt='treca'></p>";
+            echo "<img src='3.jpg' alt='treca'>";
         }
     }
 
     //11 zadatak
     echo"<p><b>Zadatak 11</b></p>";
     echo"<p>Sabrati sve brojeve deljive sa 9 u intervalu od 1 do 30. *</p>";
+    $s=0;
+    $n=30;
+    for($i=1; $i<=$n; $i++){
+        if($i%9==0){
+            $s=$s+$i;
+        }
+    }
+    echo "<p>Suma brojeva od 1 do 30 deljivih sa 9 je $s.</p>";
 
-    /////ovde sam stala
+     //12 zadatak
+     echo"<p><b>Zadatak 12</b></p>";
+     echo"<p>Odrediti proizvod svih brojeva deljivih sa 11 u intervalu od 20 do 100.</p>";
+     $i=$n=20;
+     $m=100;
+     $p=1;
+     for($i=20;$i<=$m;$i++){
+        if($i%11==0){
+            $p=$p*$i;
+        }
+     }
+     echo "<p>Proizvod brojeva od $n do $m je $p.</p>";
 
-    ////domaci 
-    //3 zadatak
-    echo"<p><b>DOMACI 7</b></p>";
-    echo"<p><b>Zadatak 3</b></p>";
-    echo"<p>For petljom odrediti da li je dati prirodan broj n prost. Broj je prost ako je deljiv samo sa jedinicom i sa samim sobom.</p>";
-    echo"<p><em>Resenje:</em></p>";
-    $br=0;
-    $n=18;
-    for($i=1;$i<=$n;$i++){
-        if($n%$i==0){
+     //13 zadatak
+     echo"<p><b>Zadatak 13</b></p>";
+     echo"<p>Prebrojati koliko ima brojeva deljivih sa 13 u intervalu od 5 do 150.</p>";
+     $i=$n=5;
+     $m=150;
+     $br=0;
+     for($i=5;$i<=$m;$i++){
+        if($i%13==0){
             $br=$br+1;
         }
-    }
-    if($br==2){
-        echo "<p>Broj $n je prost.</p>";
-    }
-    else{
-        echo "<p>Broj $n nije prost.</p>";
-    }
+     }
+     echo "<p>Broj brojeva od $n do $m deljivih sa 13 je $br.</p>";
 
-    //2 zadatak
-    echo"<p><b>Zadatak 2</b></p>";
-    echo"<p>Za uneti ceo broj odrediti koliko ima delioca koji su deljivi brojem 3 i neparni su.
-    Npr. za broj 15, delioci su 1, 3, 5 i 15, što znači da ima 2 delioca koji su deljivi brojem 3 i neparni su (to su brojevi 3 i 15)
-    Npr. za broj 6, delioci su 1, 2, 3, 6, što znači da ima 2 delioca koji su deljivi brojem 3 (3 i 6), ali samo jedan od njih je neparan (broj 3), te je rešenje ovog primera 1.</p>";
-    echo"<p><em>Resenje:</em></p>";
-    $br=0;
-    $n=21;
-    for($i=1;$i<=$n;$i++){
-        if($n%$i==0){
-            if($i%2!=0 && $i%3==0){
-                $br=$br+1;
-            }
-        }
-    }
-    echo "<p>Postoji ukupno $br delioca broja $n koji su ujedno deljivi brojem 3 i neparni.</p>";
+     //14 zadatak
+     echo"<p><b>Zadatak 14</b></p>";
+     echo"<p>Ispisati aritmetičku sredinu brojeva od n do m.</p>";
+     $i=$n=1;
+     $m=99;
+     $br=0;
+     $s=0;
+     for($i=$n;$i<=$m;$i++){
+        $s=$s+$i;
+        $br=$br+1;
+     }
+     $sr=$s/$br;
+     echo "<p>Aritmeticka sredina brojeva od $n do $m je $sr.</p>";
 
-    //1 zadatak
-    echo"<p><b>Zadatak 1</b></p>";
-    echo"<p>Odrediti zbir cifara unetog celog broja i dobijeni zbir ispisati na ekranu:<br>
-        a) Ukoliko je zbir cifara broja jednak samom broju, na ekranu se zbir ispisuje uokviren narandžastom bojom
-        Npr. za broj 5 zbir cifara je 5, što je jednako unetom broju 5<br> 
-        b) Ukoliko je zbir cifara broja manji od samog broja, na ekranu se zbir ispisuje uokviren plavom bojom.
-        Npr. za broj 101 zbir cifara je 1+0+1 = 2, što je manje od unetog 101
-        </p>";
-        echo"<p><em>Resenje:</em></p>";
-
-        $s=0;
-        $n=$i=234;
-        while($i!=0){            
-            $cifra=$i%10;
-            //echo $cifra . ", ";
-            $s=$s+$cifra;            
-
-            $i=($i-$cifra)/10;
-        }        
-        if($s==$n){
-            echo "<p>Suma cifara broja $n je <span style='border:5px solid orange;'> $s </span>.</p>";
+     //15 zadatak
+     echo"<p><b>Zadatak 15</b></p>";
+     echo"<p>Prebrojati koliko brojeva od n do m je pozitivno, a koliko njih je negativno.</p>";
+     $i=$n=-5;
+     $m=5;
+     $brP=0;
+     $brN=0;
+     for($i=$n;$i<=$m;$i++){
+        if($i<0){
+            $brN=$brN+1;
         }
         else{
-            echo "<p>Suma cifara broja $n je <span style='border:5px solid blue;'> $s </span>.</p>";
+            $brP=$brP+1;
         }
+     }
+     echo "<p>Ima ukupno pozitivnih $brP, a $brN negativnih brojeva od $n do $m.</p>";
+
+     //16 zadatak
+     echo"<p><b>Zadatak 16></b></p>";
+     echo"<p>Prebrojati koliko je brojeva od 5 do 50 koji su deljivi sa 3 ili sa 5.</p>";
+     $i=$n=5;
+     $m=50;
+     $br=0;
+     for($i=$n;$i<=$m;$i++){
+        if($i%3==0 || $i%5==0){
+            $br=$br+1;
+        }
+     }
+     echo "<p>Ima ukupno $br brojeva deljivih sa 3 i 5 od $n do $m.</p>";
+
+     //17 zadatak
+     echo"<p><b>Zadatak 17</b></p>";
+     echo"<p>Prebrojati i izračunati sumu brojeva od n do m kojima je poslednja cifra 4 i parni su.</p>";
+     $i=$n=1;
+     $m=50;
+     $br=0;
+     for($i=$n;$i<=$m;$i++){
+        if($i%10==4){
+            echo $i . ", ";
+            $br=$br+1;
+        }
+     }
+     echo "<p>Ima ukupno $br brojeva cija je poslednja cifra 4, od $n do $m.</p>";
+
+     //18 zadatak
+     echo"<p><b>Zadatak 18</b></p>";
+     echo"<p>Ispisati brojeve od n do m, koji su deljivi sa a.</p>";
+     $i=$n=1;
+     $m=100;
+     $a=10;
+     for($i=$n;$i<=$m;$i++){
+        if($i%$a==0){
+            echo $i . ", ";
+        }
+     }
+
+     //19 zadatak
+     echo"<p><b>Zadatak 19</b></p>";
+     echo"<p>Ispisati brojeve od n do m koji nisu deljivi sa a.</p>";
+     $i=$n=1;
+     $m=10;
+     $a=3;
+     for($i=$n;$i<=$m;$i++){
+        if($i%$a!=0){
+            echo $i . ", ";
+        }
+     }
+
+     //20 zadatak
+     echo"<p><b>Zadatak 20</b></p>";
+     echo"<p>Odrediti sumu brojeva od n do m koji nisu deljivi brojem a. *</p>";
+     $i=$n=1;
+     $m=10;
+     $a=3;
+     $s=0;
+     for($i=$n;$i<=$m;$i++){
+        if($i%$a!=0){
+            $s=$s+$i;
+        }
+     }
+     echo "<p>Suma brojeva od $n do $m koji nisu deljivi sa $a je $s.</p>";
+
+     //21 zadatak
+     echo"<p><b>Zadatak 21</b></p>";
+     echo"<p>Odrediti proizvod brojeva od n do m koji su deljivi brojem a, a nisu brojem b.</p>";
+     $i=$n=1;
+     $m=10;
+     $a=2;
+     $b=3;
+     $p=1;
+     for($i=$n;$i<=$m;$i++){
+        if($i%$a==0 && $i%$b!=0){
+            $p=$p*$i;
+        }
+     }
+     echo"<p>Proizvod brojeva od $n do $m koji su deljivi brojem $a, a nisu brojem $b je $p.</p>";
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+    
+
+    
+
 
 
 
