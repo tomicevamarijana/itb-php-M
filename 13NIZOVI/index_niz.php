@@ -226,6 +226,121 @@
     }
     //implode() za ispisivanje niza kao string
 
+    /////////////////////////////////////domaci
+    echo"<p><b>DOMACI 8</b><hr></p>";
+    echo"<p><b>Zadatak 1</b></p>";
+    echo"<p><b>Odrediti proizvod brojeva od n do m koji su deljivi sa 7 a nisu sa 3, a potom od njega oduzeti zbir brojeva od n do m koji su deljivi sa 3 a nisu sa 7: <br> a) Koristeći while petlju <br> b) Kotisteći for petlju </b></p>";
+    $i=$n=1;
+    $m=30;
+    $p=1;
+    $s=0;
+    echo"<p><em> a) Resenje: For petlja</em></p>";
+    for($i=$n;$i<=$m;$i++){
+        if($i%7==0 && $i%3!=0){
+            $p=$p*$i;
+        }
+        if($i%7!=0 && $i%3==0){
+            $s=$s+$i;
+        }
+    }
+    $rez=$p-$s;
+    echo"<p>Razlika proizvoda brojeva od $n do $m koji su deljivi sa 7 a nisu sa 3, i sume brojeva od $n do $m koji su deljivi sa 3 a nisu sa 7 je $rez.</p>";
+
+    echo"<p><em> b) Resenje: While petlja</em></p>";
+    while($i<=$m){
+        if($i%7==0 && $i%3!=0){
+            $p=$p*$i;
+        }
+        if($i%7!=0 && $i%3==0){
+            $s=$s+$i;
+        }
+        $i++;
+    }
+    $rez2=$p-$s;
+    echo"<p>Razlika proizvoda brojeva od $n do $m koji su deljivi sa 7 a nisu sa 3, i sume brojeva od $n do $m koji su deljivi sa 3 a nisu sa 7 je $rez2.</p>";
+
+    echo"<p><b>Zadatak 2</b></p>";
+    echo"<p><b>Odrediti sumu kubova neparnih brojeva od n do m:<br> a) Koristeći while petlju: <br> b) Koristeći for petlju:</b></p>";
+    echo"<p><em> a) Resenje: For petlja</em></p>";
+    $i=$n=1;
+    $m=10;
+    $s=0;
+    for($i=$n;$i<=$m;$i++){
+        if($i%2!=0){
+            $s=$s+$i**3;
+        }
+    }
+    echo"<p>Suma kubova neparnih brojeva od $n do $m je $s.</p>";
+    
+    echo"<p><em> b) Resenje: While petlja</em></p>";
+    $i=$n=1;
+    $m=10;
+    $s=0;
+    while($i<=$m){
+        if($i%2!=0){
+            $s=$s+$i**3;
+        }
+        $i++;
+    }
+    echo"<p>Suma kubova neparnih brojeva od $n do $m je $s.</p>";
+
+    //////zadatak 2-drugi nacin
+    echo"<p><b>Zadatak 2 - BRZI nacin.</b></p>";
+    $i=$n=2;
+    $m=10;
+    $s=0;
+    if($i%2==0){
+        for($i=$n+1;$i<=$m;$i+=2){
+            $s=$s+$i**3;
+        }       
+    }
+    else{
+        for($i=$n;$i<=$m;$i+=2){
+            $s=$s+$i**3;
+        }       
+    }    
+    echo"<p>Suma kubova neparnih brojeva od $n do $m je $s.</p>";
+
+
+
+
+
+    echo"<p><b>Zadatak 3</b></p>";
+    echo"<p><b>Napraviti tri niza:
+    <br>1. filmovi u kome će se nalaziti naslovi filmova
+    <br>2. reziseri u kome će se nalaziti reziseri filmova
+    <br>3. putanja do sličice (sličice čuvajte u posebnom folderu)    
+    <br>Nizove formirati tako da prvom filmu u nizu filmova odgovara prvi režiser iz niza režiseri i odgovara mu prva putanja iz niza putanja do sličice.
+    <br>Kreirajte nizove koji će sadržati najmanje 5 filmova. Iteracijom (petlju možete odabrati po svojoj želji) kreirati tabelu kao sa sledeće slike.
+    Kada se pređe preko sličica one izblede za 50% i dobijaju okvir i to ukoliko su u parnim redovima okvir je plave boje, dok sličice na u neparnim redovima dobijaju crveni okvir.</b></p>";
+    echo"<p><em> Resenje:</em></p>";
+
+    $filmovi=["Life is beautiful", "Forest Gump", "Butterfly Effect", "Good Will Hunting", "Into the wild", "Usual Suspects", "The Life of David Gale", "K-PAX"];
+    $reziseri=["Roberto Benigni","Robert Zemeckis","Eric Bress,J. Mackye Gruber","Gus Van Sant","Sean Penn","Bryan Singer","Alan Parker","Iain Softley"];
+    $slicice=["slike/1Life.jpg","slike/2Forest.jpg","slike/3Butterfly.jpg","slike/4Good.jpg","slike/5Into.jpg","slike/6Usual.jpg","slike/7Life.jpg","slike/8K.jpg"];
+    
+    for($i=0;$i<count($filmovi);$i++){
+        echo "$filmovi[$i], ";
+    }
+    echo"<br>";
+    for($i=0;$i<count($reziseri);$i++){
+        echo "$reziseri[$i], ";
+    }
+    echo"<br>";
+    for($i=0;$i<count($slicice);$i++){
+        echo"<img src=$slicice[$i]>";
+    }
+    echo"<br>";
+
+
+
+
+    
+
+
+
+
+
     
 
 
