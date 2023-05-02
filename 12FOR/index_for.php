@@ -84,8 +84,7 @@
 
     //10 zadatak
     echo"<p><b>Zadatak 10</b></p>";
-    echo"<p>Preuzeti sa interneta tri slike i imenovati ih 1, 2 i 3. For petljom prikazati naizmenično te tri slike $n puta 
-    (na ekranu treba biti ukupno n sličica). </p>";
+    echo"<p>Preuzeti sa interneta tri slike i imenovati ih 1, 2 i 3. For petljom prikazati naizmenično te tri slike n puta (na ekranu treba biti ukupno n sličica). </p>";
     $n=7;
     for($i=1;$i<=$n;$i++){
         if($i%3==1){
