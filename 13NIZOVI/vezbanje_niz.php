@@ -340,6 +340,11 @@
         echo $b[$i] . ", ";
       }
 
+      //Sortiranje niza
+      echo"<p><b>Sortiranje niza</b></p>";
+      $niz=[2,5,3,4,8,6,7];
+      
+
 
       
 

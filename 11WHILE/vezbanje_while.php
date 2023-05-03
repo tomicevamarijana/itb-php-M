@@ -123,6 +123,26 @@
     echo"<p><b>ZADATAK 11</b></p>";    
     echo"<p>Kreirati n proizvoljnih slika i staviti im naizmenično dva različita okvira</p>";
 
+    //ispirivanje palindroma
+    echo"<p><b>Palindrom</b></p>";    
+    echo"<p>Ispitati da li je uneti broj n palindrom.</p>";
+
+    $i=$n=1234321;  
+    $x=0; //ovaj br se petljom reverzuje
+    while($i>0){
+        $cifra=$i%10;
+        $x=$x*10+$cifra;
+        $i=($i-$cifra)/10;
+    }
+    
+    if($n==$x){
+        echo"<p>Broj $n jeste palindrom</p>"; 
+    }
+    else{
+        echo"<p>Broj $n nije palindrom</p>"; 
+    }
+
+
 
 
 
