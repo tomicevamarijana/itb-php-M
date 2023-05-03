@@ -303,7 +303,7 @@
      echo"<p>Broj $i je poslednji koji je ucestvovao u mnozenju.</p>";
      echo"<p>Broj $p je poslednji proizvod.</p>";
      
-     //konacno
+     //konacno - moje, ali nisam dobro razumela
      $cinilac=$i+1;
      $proizvod=$p/$i;
 
