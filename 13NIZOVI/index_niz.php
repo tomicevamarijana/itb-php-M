@@ -442,6 +442,24 @@
     }
     echo"<p>Broj elemenata u nizu stringova koji pocinju na slovo 'a' ili 'A' je $br.</p>";
 
+    //PROBE
+    echo"<p><b>nizovi i indeksi</b></p>";
+    $niz=[10,11,12,13,14,15,16,17];
+    var_dump($niz);
+
+    echo"<p><b>od 0 do < count </b></p>";
+
+    for($i=0; $i<count($niz);$i++){
+        echo "El. je " . $niz[$i] . ", a indeks mu je " . $i . " ; <br>";        
+    }
+
+    echo"<p><b>od 1 do <=count</b></p>";
+
+    for($i=1; $i<count($niz);$i++){
+        echo "El. je " . $niz[$i] . ", a indeks mu je " . $i . " ; <br>";        
+    }
+
+
 
 
 
