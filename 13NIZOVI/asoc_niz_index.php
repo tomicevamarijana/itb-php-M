@@ -141,6 +141,97 @@
         }
     }
 
+    //zadaci ASOCIJATIVNI NIZ
+    echo"<p><b>ASOCIJATIVNI NIZ</b></p>";
+
+    //zadatak 1
+    echo"<p><b>ZADATAK 1</b></p>";    
+    echo"<p>Dat je niz elemenata u obliku MarkaAuta/Godište.</p>";
+
+    $automobili=["Audi A3"=>2004,"Opel Corsa"=>1998,"Opel Astra"=>2016,"Reno Senic"=>2002,"Peugeot 307"=>2004];
+
+    echo"<p><b>Ispisati sve automobile, kao i njihova godišta.</b></p>";
+    foreach($automobili as $auto=>$godiste){
+        echo"<p>Automobil $auto je $godiste godište.</p>";
+    }
+    echo"<p><b>Ispisati samo godista.</b></p>"; 
+    foreach($automobili as $godiste){ //ovde prolazi samo kroz KLJUCEVE
+        echo $godiste . ", ";
+    }
+
+    echo"<p><b>Ispisati automobile koji su stariji od 10 godina.</b></p>";
+    $trenutna=date("Y");
+    foreach($automobili as $auto=>$godiste){
+        if($trenutna-$godiste>10){
+            echo"<p>Automobil $auto je stariji od 10 godina.</p>";
+        }
+    }
+
+    echo"<p><b>Ispisati automobile čija Marka sarži string “Opel”, a proizvedena su posle 2000. godine.</b></p>";
+    foreach($automobili as $auto=>$godiste){
+        if(strpos($auto,"Opel")!==false && $godiste>2000){
+            echo"<p>Automobil $auto sadrzi string “Opel”, a proizveden je posle 2000. godine.</p>";
+        }
+    }
+
+    //zadatak 2
+    echo"<p><b>ZADATAK 2</b></p>";    
+    echo"<p>Dat je niz elemenata u obliku MarkaAuta/Godište.</p>";
+
+    //zadatak 3
+    echo"<p><b>ZADATAK 3</b></p>";    
+    echo"<p>Dat je niz elemenata u obliku NazivPredmeta/Ocena koju student ima.</p>";    
+
+    $predmeti=["matematika"=>10,"filozofija"=>9,"engleski"=>10,"muzicko"=>6,"fizicko"=>7];
+
+    echo"<p><b>Ispisati sve predmete i ocene studenta.</b></p>";
+    foreach($predmeti as $predmet=>$ocena){
+        echo"<p>Iz predmeta $predmet student ima ocenu $ocena.</p>";
+    }
+
+    echo"<p><b>Odrediti najveću ocenu studenta koju ima, i ispisati predmete na kojima je dobio najveću ocenu.</b></p>";
+    $maksOcena=0;
+    foreach($predmeti as $predmet){
+        if($predmet>$maksOcena){
+            $maksOcena=$predmet;
+        }
+    }
+    echo"<p>Maksimalna ocena je $maksOcena.</p>";
+    foreach($predmeti as $predmet=>$ocena){
+        if($ocena==$maksOcena){
+            echo"<p>Iz predmeta $predmet student ima najvisu ocenu $maksOcena.</p>";
+        }
+    }
+
+    echo"<p><b>Odrediti prosečnu ocenu studenta i ispisati predmete na kojima je dobio ocenu veću od prosečne.</b></p>";
+
+    $s=0;
+    foreach($predmeti as $predmet=>$ocena){
+        $s=$s+$ocena;
+    }
+    $sr=$s/count($predmeti);
+    echo"<p><b>Prosecna ocena je $sr.</b></p>";
+
+    foreach($predmeti as $predmet=>$ocena){
+        if($ocena>$sr){
+            echo"<p>Iz predmeta $predmet student ima ocenu $ocena visu od proseka $sr.</p>";
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
