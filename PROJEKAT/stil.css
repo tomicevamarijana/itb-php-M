@@ -1,0 +1,38 @@
+/* X-Small devices (portrait phones, less than 576px)*/
+/* No media query for `xs` since this is the default in Bootstrap */
+/*
+div{
+    background-color: blueviolet;
+    border:3px solid green;
+}
+*/
+
+/* Small devices (landscape phones, 576px and up) */
+/*
+@media (min-width: 576px) { 
+    div {
+        background-color: yellow;
+        border: 3px solid red;
+    }
+}
+*/
+
+/* Medium devices (tablets, 768px and up) */
+/*
+@media (min-width: 768px) {
+    div{
+        background-color: aquamarine;
+        border: 3px solid magenta;
+    }
+}
+*/
+
+
+/* Large devices (desktops, 992px and up) */
+/* @media (min-width: 992px) { ... } */
+
+/* X-Large devices (large desktops, 1200px and up) */
+/* @media (min-width: 1200px) { ... } */
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+/* @media (min-width: 1400px) { ... } */
