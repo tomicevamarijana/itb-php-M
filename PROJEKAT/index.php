@@ -7,16 +7,16 @@
     <title>Projekat PHP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stil.css">
 </head>
 <body>
     <?php
         // ucitavanje slika za heder
         $arrayPh=[];
         for($i=1;$i<=3;$i++){            
-            $arrayPh[]=rand(1,7);
+            $arrayPh[]=rand(1,10);
         }
     ?>
-
 
     <header>
         <div class="container">
@@ -64,23 +64,35 @@
         <div class="container-fluid">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">POSAO</a>
+                    <a class="nav-link " class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExampleP" role="button" aria-expanded="false" aria-controls="collapseExampleP">POSAO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ZDRAVLJE</a>
+                    <a class="nav-link" class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExampleZ" role="button" aria-expanded="false" aria-controls="collapseExampleZ">ZDRAVLJE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">LJUBAV</a>
+                    <a class="nav-link" class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExampleLj" role="button" aria-expanded="false" aria-controls="collapseExampleLj">LJUBAV</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#id_M">MOTIVACIJA</a>
+                    <a class="nav-link" class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExampleM" role="button" aria-expanded="false" aria-controls="collapseExampleM">MOTIVACIJA</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <!-- -----------------------------------------PHP-------------------------------------------------->
+    <!-- -----------------------------------------PHP pocetak------------------------------------------>
 
     <!-- -----------------------------------------MOTIVACIJA---------------------------------------- -->
+
+<?php
+    //Logika se zasniva na sledecem:
+    // 1. ucita se txt i od njega napravi niz $array*
+    // 2. prodje se po $array* , i na osnovu parnih indeksa, napravi novi niz $citati* koji ne sadrzi autore
+    // 3. prodje se po $citati* , i odredi se rand(0,count($citati*)-1), tj definise se random citat $randCitat*
+    // 4. jos jednom se prodje po $array* (direktno ucitanom iz txt) da bi se doslo do autora $randAutor* prethodno odredjenog random citata 
+    // (autor ima sledeci, odnosno $i+=1 indeks u odnosu na njegov citat)
+    // 5. za kraj, na osnovu sva cetiri txt, tj. nizova $array* kreiran je novi niz $arrayAll
+    // (za dobijanje $randCitat i $randAutor primenjen je isti postupak).
+?>
+
 <?php
     $filePathM=__DIR__."/txt/motivacija.txt";
     $myfileM = fopen($filePathM, "r");
@@ -112,7 +124,6 @@
     //echo $randAutorM;
     //fclose($myfile);
 ?>
-
 <!-- -----------------------------------------POSAO---------------------------------------- -->
 <?php
     $filePathP=__DIR__."/txt/posao.txt";
@@ -141,7 +152,6 @@
     //echo $randAutorP;
     //fclose($myfile);
 ?>
-
 <!-- -----------------------------------------LJUBAV---------------------------------------- -->
 <?php
     $filePathLj=__DIR__."/txt/ljubav.txt";
@@ -169,7 +179,6 @@
     //echo $randAutorLj;
     //fclose($myfile);
 ?>
-
 <!-- -----------------------------------------ZDRAVLJE---------------------------------------- -->
 <?php
     $filePathZ=__DIR__.("/txt/zdravlje.txt");
@@ -196,7 +205,6 @@
     }
     //echo $randAutorZ;
 ?>
-
 <!-- -----------------------------------------4u1---------------------------------------- -->
 <?php
     for($i=0;$i<count($arrayM);$i++){
@@ -230,25 +238,32 @@
     }
     //echo $randAutor;
 ?>
-<?php
-    //Logika se zasniva na sledecem:
-    // 1. ucita se txt i od njega napravi niz $array*
-    // 2. prodje se po $array* , i na osnovu parnih indeksa, napravi novi niz $citati* koji ne sadrzi autore
-    // 3. prodje se po $citati* , i odredi se rand(0,count($citati*)-1), tj definise se random citat $randCitat*
-    // 4. jos jednom se prodje po $array* (direktno ucitanom iz txt) da bi se doslo do autora $randAutor* prethodno odredjenog random citata 
-    // (autor ima sledeci, odnosno $i+=1 indeks u odnosu na njegov citat)
-    // 5. za kraj, na osnovu sva cetiri txt, tj. nizova $array* kreiran je novi niz $arrayAll
-    // (za dobijanje $randCitat i $randAutor primenjen je isti postupak).
-?>
-
-    <!-- -----------------------------------------PHP---------------------------------------- -->
+    <!-- -----------------------------------------PHP-kraj---------------------------------------- -->
     
     <!-- main section -->
     <div class="container p-5 my-5 bg-dark text-white">
         <div class="row">
             <div class="col-12">
-                <cite id='id_M'><?php echo $randCitat;?></cite>
-                <p><?php echo $randAutor;?></p>
+                <div id="init">
+                    <cite><?php echo $randCitat;?></cite>
+                    <p><?php echo $randAutor;?></p>
+                </div>
+                <div class="collapse" id="collapseExampleP">
+                    <cite><?php echo $randCitatP;?></cite>
+                    <p><?php echo $randAutorP;?></p>
+                </div>                
+                <div class="collapse" id="collapseExampleZ">
+                    <cite><?php echo $randCitatZ;?></cite>
+                    <p><?php echo $randAutorZ;?></p>
+                </div>
+                <div class="collapse" id="collapseExampleLj">
+                    <cite><?php echo $randCitatLj;?></cite>
+                    <p><?php echo $randAutorLj;?></p>
+                </div>
+                <div class="collapse" id="collapseExampleM">
+                    <cite><?php echo $randCitatM;?></cite>
+                    <p><?php echo $randAutorM;?></p>
+                </div> 
             </div>
         </div>
     </div>
@@ -256,10 +271,13 @@
     <!-- footer -->
     <footer>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
+            <div class="row">                
+                <div class="col-6">
                     <p><?php echo date('H:i A'); ?></p>
                 </div>
+                <div class="col-6">
+                    <p><?php echo date('l jS \of F Y'); ?></p>
+                </div>                
             </div>
         </div>
     </footer>
