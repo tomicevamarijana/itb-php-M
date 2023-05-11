@@ -1,20 +1,20 @@
-posao 1
-autor posao 1
-posao 2
-autor posao 2
-posao3
-autor posao 3
-posao 4
-autor posao 4
-posao 5
-autor posao 5
-posao 6
-autor posao 6
-posao 7
-autor posao  7
-posao 8
-autor posao  8
+Svaki čovjek je sin svoga rada.
+Miguel de Cervantes
+Neka budućnost kaže istinu i procijeni svakoga u skladu s njegovim radom i postignućima. Sadašnjost je njihova; a budućnost, za koju sam zaista radio, je moja.
+Nikola Tesla
+Mnogi ljudi propste priliku jer je obučena u radno odelo i izgleda kao posao.
+Tomas Edison
+Kada zaposlite ljude koji su pametniji od vas, dokazali ste da ste pametniji od njih.
+R. H. Grant
+Izgradi vlastite snove ili će te netko drugi zaposliti da izgradiš njihove.
+Farrah Grey
+Vaš talent određuje što možete učiniti. Vaša motivacija određuje koliko ste spremni učiniti. Vaš stav određuje koliko dobro to radite. 
+Lou Holtz
+Ako ne osmislite vlastiti životni plan, velike su šanse da ćete pasti u tuđi plan i pogoditi što su vam planirali? Ne mnogo.
+Jim Rohn
+Da imam osam sati za sječu stabla, potrošio bih šest sati na oštrenje sjekire.
+Abraham Lincoln
 Ne želim nikakav odmor – nikakav prestanak teškog rada. Kada bi ljudi birali posao u skladu sa svojim temperamentom, ukupna količina sreće na zemlji bila bi nemerljivo veća.
 Nikola Tesla
-posao 10
-autor posao 10
+Da biste razumjeli srce i um osobe, ne gledajte ono što je već postigao, već ono čemu teži.
+Kahlil Gibran
