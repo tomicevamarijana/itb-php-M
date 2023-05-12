@@ -40,18 +40,14 @@ body{
 section p{
     text-align: right;
     font-size: 2rem;
-    padding-right: 20%;   
+    padding-right: 20%;  
     
 }
 section cite{
     font-size: 2.3rem;
     
 }
-footer{
-    position: fixed;
-    bottom: 0px;
-    z-index: 1000;
-    width: 100%;    
+footer{    
     background-image: linear-gradient(gray,white);  
 }
 #date p,#time p{

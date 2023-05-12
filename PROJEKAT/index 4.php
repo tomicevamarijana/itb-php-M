@@ -245,7 +245,7 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- main -->
 
     <section>
@@ -298,7 +298,7 @@
     </section>
 
     <!-- footer -->
-    <footer>
+    <footer class="fixed-bottom">
         <div class="container-fluid">
             <div class="row">                
                 <div class="col-6" id="time">
