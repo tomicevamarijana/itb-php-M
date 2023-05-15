@@ -289,15 +289,19 @@
     Rečenica je palindromska ukoliko se isto čita slava na desno i sdesna na levo (neračunajući razmake). </p>";
 
     $niz=["Maja jede jabuke","Ana voli Milovana","ana voli milovana"];
+
+    
     for($i=0;$i<count($niz);$i++){
-        //$niz[$i]=str_replace(" ","",$niz[$i]);
-        $niz[$i]=strtolower(str_replace(" ","",$niz[$i]));
-    }
+        $niz[$i]=str_replace(" ","",$niz[$i]);
+        //$niz[$i]=strtolower(str_replace(" ","",$niz[$i]));        
+    }    
     //samo ispis 
     for($i=0;$i<count($niz);$i++){
         echo $niz[$i] . ",";
     }
     echo "<br>";
+
+    /*
     $obrnutiNiz=[];
     for($i=0;$i<count($niz);$i++){
         $obrnutaRec="";        
@@ -311,6 +315,65 @@
     for($i=0;$i<count($obrnutiNiz);$i++){
         echo $obrnutiNiz[$i] . ",";
     }
+    */
+    function palindromStr($niz){
+        for($i=0;$i<count($niz);$i++){
+            if($niz[$i]==strrev($niz[$i])){
+                echo "<p style='color:green'>$niz[$i]</p>";
+            }
+            else{
+                echo "<p style='color:red'>$niz[$i]</p>";
+            }
+        }
+    }
+    //poziv
+    echo palindromStr($niz);
+
+    //Domaci 7, zadatak 1. - jos jedan nacin resenja
+    //ZADATAK 24
+    echo"<hr><p>Domaci 7-Zadatak 1</p>";
+    echo"<p>Odrediti zbir cifara unetog celog broja i dobijeni zbir ispisati na ekranu:
+        Ukoliko je zbir cifara broja jednak samom broju, na ekranu se zbir ispisuje uokviren narandžastom bojom
+        Npr. za broj 5 zbir cifara je 5, što je jednako unetom broju 5        
+        Ukoliko je zbir cifara broja manji od samog broja, na ekranu se zbir ispisuje uokviren plavom bojom.
+        Npr. za broj 101 zbir cifara je 1+0+1 = 2, što je manje od unetog 101</p>";
+
+    $a = 158126;
+    $dec = 10;
+    $s = $a % 10;
+    while($a > $dec) {
+        $s += ($a % ($dec * 10) - $a % $dec) / $dec;
+        $dec *= 10;
+    }
+
+    //Domaci 8, zadatak 1. pogledajte uslov kako je resen
+    echo"<hr><p>Domaci 8-Zadatak 1</p>";
+    echo"<p>Odrediti proizvod brojeva od n do m koji su deljivi sa 7 a nisu sa 3, a potom od njega oduzeti zbir brojeva od n do m koji su deljivi sa 3 a nisu sa 7:
+    Koristeći while petlju
+    Kotisteći for petlju</p>";
+
+    $n = 5;
+    $m = 28;
+    $p = 1;
+    $s = 0;
+    $i = $n;
+    while($i <= $m) {
+        if($i % 7 == 0) {
+            if($i %3 != 0) {
+                $p *= $i;
+            }
+        } elseif($i %3 == 0) {
+            $s += $i;
+        }
+        $i++;
+    }
+    
+
+    
+
+    
+   
+    
 
 
 
