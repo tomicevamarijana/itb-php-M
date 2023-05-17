@@ -280,7 +280,9 @@
     }
     echo "Broj merenja sa natprosecnom temp: " . $dan["datum"] . " jednak je: " . brojNatprosecnoMerenih($dan);
 
-    echo "<p><b>17. </b></p>";
+    //17
+    echo "<p><b>17. Napisati funkciju brojMaxMerenja(dan) kojoj se prosleđuje dan, a koja prebrojava i vraća koliko merenja je bilo sa maksimalnom temperaturom.</b></p>";
+    
 
     echo "<p><b>18. Napisati funkciju koja prima 3 parametra koji predstavljaju dan i dve temperature. Potrebno je da metoda vrati broj merenja u toku dana čija je vrednost između ove dve zadate temperature (ne uključujući te dve vrednosti).
     </b></p>";
