@@ -112,6 +112,208 @@
         $i++;
     }
 
+    echo "<p><b>vezbanje pred test</b></p>";
+    echo "<p><b>Zadatak 1</b></p>";
+    echo "<p>ZADATAK. Sa niškog aerodroma u toku jednog dana polaze letovi ka različitim gradovima. Dat je asocijativni niz u kojem su ključevi destinacije letova, a vrednosti broj putnika na svakom letu.
+    Kreirati niz letovi po uslovima zadatka.
+    Napisati funkciju maxBrojPutnika(etovi) kojoj se prosleđuje niz letova, a funkcija vraća maksimalan broj putnika na nekom od letova.
+    Napisati funkciju brojMax(letovi) kojoj se prosleđuje niz letova, a funkcija vraća broj letova na kojima je leteo maksimalan broj putnika.
+    Napisati funkciju prosek(letovi) kojoj se prosleđuje niz letova, a funkcija vraća prosečan broj putnika po letu sa niškog aerodroma tog dana.
+    Dan je bio isplativ za niški aerodrom ukoliko je u većini letova broj putnika bio veći od zadate granice. Napisati funkciju isplativ(letovi, granica) kojoj se prosleđuju niz letova, kao i granica, a funkcija ispituje da li je dan bio isplativ (vraća true ako jeste i false ako nije).
+    Dan je alarmantan za niški aerodrom ukoliko postoji neki let u kojem je broj putnika bio manji od zadate granice. Napisati funkciju alarmantan(letovi, granica) kojoj se prosleđuju niz letova, kao i granica, a funkcija ispituje da li je dan bio alarmantan (vraća true ukoliko je postojao let u kojem je broj putnika bio manji od granice, i false ako nije).
+    Napisati funkciju dobreDestinacije(letovi) kojoj se prosleđuje niz letova, a funkcija ispisuje letove sa natprosečnim brojem putnika.
+    </p>";
+
+    $letovi=["Pariz"=>250,"Istanbul"=>400,"Beograd"=>400,"Kraljevo"=>150];
+
+    echo "<p><b>deo 2</b></p>";
+    function maxBrojPutnika($letovi){
+        $maks=0;
+        foreach($letovi as $dest=>$broj){
+            if($broj>$maks){
+                $maks=$broj;
+            }
+        }
+        return $maks;
+    }
+    //poziv
+    echo "Maksimalni broj putnika je: " . maxBrojPutnika($letovi);    
+
+    echo "<p><b>deo 3</b></p>";
+    function brojLetovi($letovi){
+        $maksPutnika=maxBrojPutnika($letovi); //obavezno unutar funkcije da bi bila vidljiva!!! ako je van, onda global $imePromenljive
+        $br=0;
+        foreach($letovi as $dest=>$broj){
+            if($broj==$maksPutnika){
+                $br++;
+            }
+        }
+        return $br;
+    }
+    //poziv
+    echo brojLetovi($letovi);
+
+    echo "<p><b>deo 4-PROSEK LETOVI</b></p>";
+    function prosekLetovi($letovi){
+        $s=0;
+        $br=0;
+        foreach($letovi as $dest=>$broj){
+            $s=$s+$broj;            
+            $br++;
+        }
+        $sr=round($s/$br);
+        return $sr;
+    }
+    //poziv 
+    echo "Prosecan broj putnika po letovima je " . prosekLetovi($letovi);
+
+    //5 isplativ
+    echo "<p><b>deo 5-ISPLATIV</b></p>";
+    function isplativ($letovi,$granica){
+        $brOk=0;
+        $brNo=0;
+        foreach($letovi as $dist=>$broj){
+            if($broj>=$granica){
+                $brOk++;                
+            }
+            else{
+                $brNo++;
+            }
+        }
+        if($brOk>=$brNo){
+            return true;
+            //echo "true";
+        }
+        else{
+            //echo "false";
+            return false;
+        }
+    }
+    echo "Let je bio isplativ za granicu 300: " . (isplativ($letovi,300)?"Jeste":"Nije");
+    if(isplativ($letovi,300)){
+        echo "Jeste";
+    }
+    else{
+        echo "Nije";
+    }
+
+    echo "<p><b>deo 6-ALARMANTAN</b></p>";
+    //6 alarmantan
+
+    function alarmantan($letovi,$granica){
+        $br=0;
+        foreach($letovi as $dest=>$broj){
+            if($broj<$granica){
+                $br++;
+            }
+        }
+        if($br>0){
+            //return true;
+            echo "true";
+        }
+        else{
+            //return false;
+            echo "false";
+        }
+    }
+    echo "Dan je bio alarmantan za granicu 100" . (alarmantan($letovi,100)?"jeste":"nije");
+
+    echo "<p><b>deo 7-dobre destinacije</b></p>";
+    //7 DOBRE DESTINACIJE
+
+    function dobreDestinacije($letovi){
+        $sr=prosekLetovi($letovi);
+        foreach($letovi as $dest=>$broj){ //do sad je moglo samo values
+            if($broj>$sr){
+                echo "<p>Let ka destinaciji $dest (broji $broj putnika)</p>";
+            }
+        }
+    }
+    echo "Dobre destinacije su: ";
+    echo dobreDestinacije($letovi);
+
+    echo "<hr>";
+    echo "<p><b>2 ZADATAK</b></p>";
+    echo "<p><b>deo 1</b></p>";
+
+    $letovi=[
+        ["Beograd,Srbija"=>"07:22"],
+        ["Zagreb","Hrvatska","12:30"],
+        ["Pariz","Francuska","17:30"],
+    ];
+    //nastavice se....
+    
+    echo "<p><b>TEMPERATURE</b></p>";
+
+    $dan=array(
+        "datum"=>"2023/05/16",
+        "kisa"=>true,
+        "sunce"=>true,
+        "oblacno"=>false,
+        "temperature"=>array(5,8,13,17,12,9,6)
+    );
+    echo "<p><b>15. Prosecne temperature</b></p>";
+    function prosecnaTemp($dan){
+        $temperature=$dan["temperature"];
+        $suma=0;
+        //for($i=0;$i<count($temperature);$i++)
+        foreach($temperature as $temp){ //bolje for petlja,indexi su 0-6
+            $suma=$suma+$temp;
+        }
+        //pretpostavljamo da niz nije prazan i deljenje nulom
+        $prosek=$suma/count($temperature);
+        return $prosek;
+    }
+    echo "Prosecna temp.za dan " . $dan["datum"] . " je: " . prosecnaTemp($dan);
+
+    echo "<p><b>16. broj natprosecnih temperatura</b></p>";
+    function brojNatprosecnoMerenih($dan){
+        $prosecnaTemperatura=prosecnaTemp($dan);
+        $br=0;
+        $temperature=$dan["temperature"];
+        foreach($temperature as $temp){
+            if($temp>$prosecnaTemperatura){
+                $br++;
+            }
+        }
+        return $br;        
+    }
+    echo "Broj merenja sa natprosecnom temp: " . $dan["datum"] . " jednak je: " . brojNatprosecnoMerenih($dan);
+
+    echo "<p><b>17. </b></p>";
+
+    echo "<p><b>18. Napisati funkciju koja prima 3 parametra koji predstavljaju dan i dve temperature. Potrebno je da metoda vrati broj merenja u toku dana čija je vrednost između ove dve zadate temperature (ne uključujući te dve vrednosti).
+    </b></p>";
+
+    function brojMerenjaIzmedju($dan,$min,$max){
+        $temperature=$dan["temperature"];//niz merenja temp. tog dana
+        $br=0;
+        foreach($temperature as $temp){
+            if($temp>$min && $temp<$max){
+                $br++;
+            }
+        }
+        return $br;
+    }
+    $v1=7;
+    $v2=15;
+    echo "Broj merenja na dan " . $dan["datum"] . "izmedju vrednosti $v1 i $v2 jednak je: " . brojMerenjaIzmedju($dan,$v1,$v2);
+
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 
