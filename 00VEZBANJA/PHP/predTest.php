@@ -152,7 +152,7 @@
     echo "<p><b>22 Dan je nepovoljan ako je razlika između neka dva uzastopna merenja veća od 8 stepeni. Napisati funkciju nepovoljan(dan) kojoj se prosleđuje dan, a koja vraća true ukoliko je dan bio nepovoljan, u suprotnom vraća false.</b></p>"; //kako da se regulise poslednji indeks?
     function nepovoljan($dan){
         $tempNiz=$dan["temperature"];
-        for($i=0;$i<count($tempNiz);$i++){
+        for($i=0;$i<count($tempNiz)-1;$i++){
             if(abs($tempNiz[$i]-$tempNiz[$i+1])>8){
                 return true;
             }
@@ -304,21 +304,117 @@
 
     //13 zadatak
     echo "<p><b>13 Neka destinacija je tražena ukoliko postoji više letova u toku dana za tu destinaciju. Napisati funkciju trazeneDestinacije(letovi) kojoj se prosleđuje niz letova, a koja ispisuje sve tražene destinacije (ukoliko postoje). </b></p>";
-    function trazenaDestiacija($letovi){
-        $br=0;
-        
+    function trazenaDestiacija($letovi){                
         for($i=0;$i<count($letovi);$i++){
-            $destinacije[]=$letovi[$i]["dest"];            
+            $destinacije[]=$letovi[$i]["dest"]; //pravi se niz od svih destinacija
+            //echo $destinacije[$i] . ", ";       
         }
-        for($i=0;$i<count($letovi);$i++){
-            for($j=0;$j<count($destinacije);$j++){
+        
+        for($j=0;$j<count($destinacije);$j++){
+            $br=0;
+            for($i=0;$i<count($letovi);$i++){
                 if($destinacije[$j]==$letovi[$i]["dest"]){
-                    $br++;
-                    $trazenaDest=$destinacije[$j];
+                    $br++;                    
+                }                
+            }
+            if($br>1){
+                //$trazenaDest=$destinacije[$j];
+                echo "Trazena destinacija je: " . $destinacije[$j];
+                echo "<br>";
+            }             
+        }                
+    }
+    trazenaDestiacija($letovi);
+
+    
+
+    //14 zadatak
+    echo "<p><b>14 Napisati funkciju prosecanBrojLetovaZaZemlju(letovi) kojoj se prosleđuje niz letova, a koja vraća prosečan broj letova ka nekoj zemlji.</b></p>";
+    function prosecanBrojLetova($letovi){
+        $zemljeNiz=[];
+        for($i=0;$i<count($letovi);$i++){
+            $zemljeNiz[]=$letovi[$i]["country"];
+            //echo $zemljeNiz[$i] . ", ";
+        }
+        $br=0;
+        for($i=0;$i<count($letovi);$i++){
+            for($j=0;$j<count($zemljeNiz);$j++){
+                $br++;
+            }
+        }
+        echo $br;
+        echo "<br>";
+        $sr=$br/count($zemljeNiz);
+        echo $sr;
+    }
+    prosecanBrojLetova($letovi); 
+
+    echo "<p><b>STEFAN-vezbe<hr></b></p>";
+
+    $letovi2=array(
+        array("dest"=>"Paris","country"=>"France","time"=>"07:10"),
+        array("dest"=>"Madrid","country"=>"Spain","time"=>"15:00"),
+        array("dest"=>"Madrid","country"=>"Spain","time"=>"23:30"),
+        array("dest"=>"Barcelona","country"=>"Spain","time"=>"06:30")
+    );
+
+    function ispisSvihLetova2($letovi2){
+        foreach($letovi2 as $let){
+            $destinacija=$let["dest"];
+            $zemlja=$let["country"];
+            $vreme=$let["time"];
+            echo "<p> Destinacija: $destinacija, zemlja: $zemlja, vreme: $vreme </p>";
+        }
+    }
+    ispisSvihLetova2($letovi2);
+
+    echo "<p><b>Zadatak: Ispis svih letova pre podne u plavom, posle podne ljubicasto</b></p>";
+    //zadatak: ispis svih letova pre podne u plavom, posle podne ljubicasto
+    function ispisSvihLetovaBoja($letovi2){
+        foreach($letovi2 as $let){
+            $destinacija=$let["dest"];
+            $zemlja=$let["country"];
+            $vreme=$let["time"];
+            $vremeInt=(int)substr($let["time"],0,2);//iz stringa, pocetna poz i duzina-ovde dobijam samo dve cifre
+
+            if($vremeInt<12){
+                echo "<p style='color:blue'> Destinacija: $destinacija, zemlja: $zemlja, vreme: $vreme </p>";
+            }
+            else{
+                echo "<p style='color:purple'> Destinacija: $destinacija, zemlja: $zemlja, vreme: $vreme </p>";
+            }            
+        }
+    }
+    ispisSvihLetovaBoja($letovi2);
+
+    //13 stefanov nacin
+    echo "<p><b>13-trazene destinacije - stefan</b></p>";
+
+    function trazeneDestinacijeS($letovi){
+        $polasci=array(); //
+        foreach($letovi as $let){
+            $destinacija=$let["dest"];
+            $postojiLet=false;
+            foreach($polasci as $d=>$br){
+                if($d==$destinacija){
+                    $postojiLet=true;
+                    $polasci[$destinacija]++;
                 }
+            }
+            if($postojiLet==false){
+                $polasci[$destinacija]=1;
+            }
+        }
+        foreach($polasci as $d=>$br){
+            if($br>1){
+                echo "<p>$d je trazena destinacija.</p>";
             }
         }        
     }
+    trazeneDestinacijeS($letovi);
+
+    //m
+
 
 
     
