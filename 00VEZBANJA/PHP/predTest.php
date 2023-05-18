@@ -227,7 +227,8 @@
         array("dest"=>"istanbul","country"=>"turska","time"=>"20:10"),
         array("dest"=>"antalija","country"=>"turska","time"=>"13:10"),
         array("dest"=>"nica","country"=>"francuska","time"=>"05:30"),        
-        array("dest"=>"antalija","country"=>"turska","time"=>"11:00")
+        array("dest"=>"antalija","country"=>"turska","time"=>"11:00"),
+        array("dest"=>"antalija","country"=>"turska","time"=>"14:00")
     );
 
     //9 zadatak
@@ -303,51 +304,57 @@
     rizicniLetovi($letovi,$crvenaZona);
 
     //13 zadatak
-    echo "<p><b>13 Neka destinacija je tražena ukoliko postoji više letova u toku dana za tu destinaciju. Napisati funkciju trazeneDestinacije(letovi) kojoj se prosleđuje niz letova, a koja ispisuje sve tražene destinacije (ukoliko postoje). </b></p>";
-    function trazenaDestiacija($letovi){                
+    echo "<p><b>13 Neka destinacija je tražena ukoliko postoji više letova u toku dana za tu destinaciju. Napisati funkciju trazeneDestinacije(letovi) kojoj se prosleđuje niz letova, a koja ispisuje sve tražene destinacije (ukoliko postoje). </b></p>";   
+    function trazeneDestinacijeM($letovi){
+        $destinacijeNiz=[];
         for($i=0;$i<count($letovi);$i++){
-            $destinacije[]=$letovi[$i]["dest"]; //pravi se niz od svih destinacija
-            //echo $destinacije[$i] . ", ";       
+            if(!in_array($letovi[$i]["dest"],$destinacijeNiz)){
+                $destinacijeNiz[]=$letovi[$i]["dest"];
+                //echo $destinacijeNiz[$i] . ", ";
+            }            
         }
         
-        for($j=0;$j<count($destinacije);$j++){
+        for($j=0;$j<count($destinacijeNiz);$j++){
             $br=0;
             for($i=0;$i<count($letovi);$i++){
-                if($destinacije[$j]==$letovi[$i]["dest"]){
-                    $br++;                    
-                }                
+                if($letovi[$i]["dest"]==$destinacijeNiz[$j]){
+                    $br++;
+                }
             }
             if($br>1){
-                //$trazenaDest=$destinacije[$j];
-                echo "Trazena destinacija je: " . $destinacije[$j];
-                echo "<br>";
-            }             
-        }                
+                echo "Trazena dest. je " . $destinacijeNiz[$j];
+            }
+        }
     }
-    trazenaDestiacija($letovi);
-
+    trazeneDestinacijeM($letovi);
     
 
     //14 zadatak
     echo "<p><b>14 Napisati funkciju prosecanBrojLetovaZaZemlju(letovi) kojoj se prosleđuje niz letova, a koja vraća prosečan broj letova ka nekoj zemlji.</b></p>";
+
     function prosecanBrojLetova($letovi){
         $zemljeNiz=[];
         for($i=0;$i<count($letovi);$i++){
-            $zemljeNiz[]=$letovi[$i]["country"];
-            //echo $zemljeNiz[$i] . ", ";
-        }
-        $br=0;
-        for($i=0;$i<count($letovi);$i++){
-            for($j=0;$j<count($zemljeNiz);$j++){
-                $br++;
+            if(!in_array($letovi[$i]["country"],$zemljeNiz)){
+                $zemljeNiz[]=$letovi[$i]["country"];
+                //echo $zemljeNiz[$i] . ", "; //niz nedupliranih zemalja
             }
         }
-        echo $br;
-        echo "<br>";
-        $sr=$br/count($zemljeNiz);
-        echo $sr;
+        $ukupnoLetova=0;
+        for($j=0;$j<count($zemljeNiz);$j++){
+            $brLetaPoZemlji=0;
+            for($i=0;$i<count($letovi);$i++){
+                if($letovi[$i]["country"]==$zemljeNiz[$j]){
+                    $brLetaPoZemlji++;
+                }
+            }
+            $ukupnoLetova=$ukupnoLetova+$brLetaPoZemlji;
+        }
+        $sr=round($ukupnoLetova/count($zemljeNiz),2);
+        //echo "Ukupno letova po nekoj zemlji je: $sr";
     }
-    prosecanBrojLetova($letovi); 
+    prosecanBrojLetova($letovi);
+
 
     echo "<p><b>STEFAN-vezbe<hr></b></p>";
 
@@ -411,9 +418,8 @@
             }
         }        
     }
-    trazeneDestinacijeS($letovi);
+    trazeneDestinacijeS($letovi);   
 
-    //m
 
 
 
