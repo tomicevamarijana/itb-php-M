@@ -68,7 +68,7 @@
             if($str=="RSD"){
                 if($this->getStanje() >= $num){
                     $novoStanje=$this->getStanje() - $num;
-                    $this->setStanje(round($novoStanje,2));
+                    $this->setStanje(round($novoStanje,2)); //uSetStanje mozda nije morao round, posto je vec u seteru
                     $this->stanje();
                     return true;
                 }
