@@ -10,7 +10,7 @@
 
         //konstruktor
         public function __construct($a,$b,$c){
-            if($a+$b>$c && $a+$c>$b && $b+$c>$a && $a>0 && $b>0 && $c>0){
+            if(self::uslovZaTrougao($a,$b,$c)){
                 $this->a=$a;
                 $this->b=$b;
                 $this->c=$c;
