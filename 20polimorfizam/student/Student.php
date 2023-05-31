@@ -7,8 +7,15 @@
         //konstruktor
         public function __construct($i,$ob,$oc){
             $this->setIme($i);
-            $this->setOsvojeniESPB($ob);
+            //$this->setOsvojeniESPB($ob);
             $this->setProsecnaOcena($oc);
+            if($ob<=300){
+                $this->osvojeniESPB=$ob;
+            }
+            else{
+                $this->osvojeniESPB=0;
+            } //vrvt je moglo i samo preko setera, jer seter za $osvojeniESPB u osnovnoj klasi je nezavisan od ostalih polja
+            
         }
 
         //seteri
@@ -17,13 +24,16 @@
                 $this->ime=$i;
             }
         }
-        public function setOsvojeniESPB($ob){
-            if(is_integer($ob)){
+        public function setOsvojeniESPB($ob){ //ovo treba da overridujem u samofinansirajucem, ali treba mi i ovde jer vazi za budzetskog
+            if($ob<=300){
                 $this->osvojeniESPB=$ob;
+            }
+            else{
+                $this->osvojeniESPB=0;
             }
         }
         public function setProsecnaOcena($oc){
-            if(is_numeric($oc)){
+            if(is_numeric($oc)){ //mogu dodati izmedju 6 i 10
                 $this->prosecnaOcena=$oc;
             }
         }

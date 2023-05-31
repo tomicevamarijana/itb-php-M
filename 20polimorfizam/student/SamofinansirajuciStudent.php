@@ -14,6 +14,12 @@
             if($pb>=35 && $pb<=60 && ($ob+$pb)<=300){
                 $this->prijavljeniESPB=$pb;
             }
+            elseif($pb<35 && $ob>=265 && ($pb+$ob)<=300){ //>=265 promenila
+                $this->prijavljeniESPB=$pb;
+            }
+            else{
+                $this->prijavljeniESPB=0;
+            }
         }
 
         //seter
@@ -24,7 +30,27 @@
             if($pb>=35 && $pb<=60 && ($pb+$this->osvojeniESPB)<=300){
                 $this->prijavljeniESPB=$pb;
             }
+            elseif($pb<35 && $this->osvojeniESPB >= 265 && ($pb + $this->osvojeniESPB)<=300){ //>=265 promenila
+                $this->prijavljeniESPB=$pb;
+            }
+            else{
+                echo "<p>Ne moze da se PROMENI vrednost prijavljenih bodova.</p>";
+            }
         }
+        
+        //override seter za $osvojeniESPB
+        //za slucaj da neko hoce naknadno da promeni polje vec kreiranog objekta(koji ima setovan $prijavljenESPB)
+        public function setOsvojeniESPB($ob){
+            //parent::setOsvojeniESPB($ob);
+            if($ob + $this->prijavljeniESPB <=300){
+                $this->osvojeniESPB=$ob;
+            }
+            else{
+                echo "<p>Ne moze da se PROMENI vrednost osvojenih bodova.</p>";
+                
+            }//ovde nije obezbedjeno da se ne dodje u slucaj da npr. $osvojene neko sa strane podesi na <265, a $prijavljeni ostanu na 15, ali priroda zadatka je takva da se $osvojeni ne menjaju
+        }
+        
         //geter
         public function getPrijavljeniESPB(){
             return $this->prijavljeniESPB;
@@ -52,6 +78,4 @@
 
 
     }
-
-
 ?>

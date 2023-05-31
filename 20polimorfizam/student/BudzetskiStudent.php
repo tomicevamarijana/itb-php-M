@@ -16,6 +16,9 @@
             if($this->osvojeniESPB%60==0 && $this->osvojeniESPB!=300){ //obrati paznju ovde!!!
                 return 0;
             }
+            elseif($this->osvojeniESPB==300){
+                echo "<p>Student nema vise ispita jer je zavrsio studije.</p>";
+            }
             else{
                 return 100;
             }
@@ -29,6 +32,4 @@
 
 
     }
-
-
 ?>
