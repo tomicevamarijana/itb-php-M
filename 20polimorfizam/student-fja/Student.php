@@ -1,8 +1,12 @@
-<?php //osnovno, bez konstanti i posebne funkcije za uslov
+<?php //DODATA FUNKCIJA I KONSTANTE U NJOJ 
     abstract class Student{
         protected $ime;
         protected $osvojeniESPB;
         protected $prosecnaOcena;
+        //konstante const ROMB="Romb";
+        const ZBIR=300;
+        const GORNJAG=60;
+        CONST DONJAG=35;
 
         //konstruktor
         public function __construct($i,$ob,$oc){

@@ -2,11 +2,11 @@
     require_once "SamofinansirajuciStudent.php";
     require_once "BudzetskiStudent.php";
 
-    $ss1=new SamofinansirajuciStudent("Petar Petrovic(S)", 265, 7.9, 35);
+    $ss1=new SamofinansirajuciStudent("Petar Petrovic(S)", 265, 7.9, 34);
     //echo $ss1->ispis();
-    //echo $ss1->setPrijavljeniESPB(2);
+    //echo $ss1->setPrijavljeniESPB(51);
     //echo $ss1->ispis();
-    //echo $ss1->setOsvojeniESPB2(60);
+    //echo $ss1->setOsvojeniESPB(264);
     //echo $ss1->ispis();
     //echo $ss1->cenaPrijaveIspita() . "<br>";
     //echo $ss1->skolarina() . "<hr>";
@@ -29,7 +29,7 @@
     //kreiranje niza
     $studenti=[$ss1,$bs1,$ss2,$bs2];
 
-    
+    /*
     //zadatak 6
     echo "<p><b>Zadatak 6</b></p>";
     echo "<p>Odrediti studenta koji plaća najveću školarinu. </p>";
@@ -107,6 +107,6 @@
     }
     echo "<p>Student sa minimalnim brojem bodova koji placa maksimalnu skolarinu: </p>";
     minBodova($studenti)->ispis();
-    
+    */
 
 ?>

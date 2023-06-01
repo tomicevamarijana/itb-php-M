@@ -2,7 +2,27 @@
     require_once "Student.php";
     
     class SamofinansirajuciStudent extends Student{
-        protected $prijavljeniESPB;
+        protected $prijavljeniESPB; 
+
+        public static function uslov($ob,$pb){
+            if($pb>=Student::DONJAG && $pb<=Student::GORNJAG && ($ob+$pb)<=Student::ZBIR){
+                return true;
+            }
+            elseif($pb<Student::DONJAG && $ob>=(Student::ZBIR - Student::DONJAG) && ($pb+$ob)<=Student::ZBIR){
+                return true;
+            }
+        }
+
+        /*
+        public static function uslov2($ob,$pb){
+            if($pb>=35 && $pb<=60 && ($ob+$pb)<=300){
+                return true;
+            }
+            elseif($pb<35 && $ob>=265 && ($pb+$ob)<=300){
+                return true;
+            }
+        }
+        */
 
         //konstruktor
         //Ti hoces da napravis novi objekat koji jos uvek nema vrednosti u poljima a b c.
@@ -10,6 +30,19 @@
         //Polja nisu setovana, ergo uslov nije zadovoljen
 
         public function __construct($i,$ob,$oc,$pb){
+            parent::__construct($i,$ob,$oc);
+            if(self::uslov($ob,$pb)){ //ovde me bunilo, da li treba $this->ob, ako je polje vec postavljeno
+                $this->prijavljeniESPB=$pb;
+            }
+            else{
+                $this->prijavljeniESPB=0;
+            }
+        }
+
+
+
+        /*
+        public function __construct2($i,$ob,$oc,$pb){
             parent::__construct($i,$ob,$oc);
             if($pb>=35 && $pb<=60 && ($ob+$pb)<=300){
                 $this->prijavljeniESPB=$pb;
@@ -21,12 +54,24 @@
                 $this->prijavljeniESPB=0;
             }
         }
+        */
 
         //seter
         // u uslovima u seteru se proverava da li nova vrednost stranice (koja se unosi kao parametar setera) zajedno sa druge dve postojece stranice
         //(koje se pozivaju sa $this->a/b/c) zadovoljava uslov za trougao
-        
+
         public function setPrijavljeniESPB($pb){
+            if(self::uslov($this->osvojeniESPB,$pb)){
+                $this->prijavljeniESPB=$pb;
+            }
+            else{
+                echo "<p>Ne moze da se PROMENI vrednost prijavljenih bodova.</p>";
+            }
+        }
+
+
+        /*
+        public function setPrijavljeniESPB2($pb){
             if($pb>=35 && $pb<=60 && ($pb+$this->osvojeniESPB)<=300){
                 $this->prijavljeniESPB=$pb;
             }
@@ -37,23 +82,38 @@
                 echo "<p>Ne moze da se PROMENI vrednost prijavljenih bodova.</p>";
             }
         }
+        */
         
-        //override seter za $osvojeniESPB
-        //za slucaj da neko hoce naknadno da promeni polje vec kreiranog objekta(koji ima setovan $prijavljenESPB)
+        //override seter za $osvojeniESPB        
+        //za slucaj da neko hoce naknadno da promeni polje $osvojeni vec kreiranog objekta(koji ima setovan $prijavljenESPB)
+        //za ovo mozda nema potrebe, jer je priroda zad.da student ne moze drasticno da menja osvojene bodove
+        //ali ovim je obezbedjeno da se ne dodje u slucaj da npr. neko sa strane $osvojene podesi na <265, a $prijavljeni ostanu na 15, sto po definiciji zad.ne bi smelo da se desi
+        
         public function setOsvojeniESPB($ob){
-            if($this->prijavljeniESPB >= 35 && $ob<=265 && ($this->prijavljeniESPB + $ob)<=300){ 
+            if(self::uslov($ob,$this->prijavljeniESPB)){
+                $this->osvojeniESPB=$ob;
+            }            
+            else{
+                echo "<p>Ne moze da se PROMENI vrednost osvojenih bodova.</p>";
+            }
+        }
+
+        /*
+        public function setOsvojeniESPBstari($ob){
+            if($this->prijavljeniESPB >= 35 && $this->prijavljeniESPB <= 60 && $ob<=265 && ($this->prijavljeniESPB + $ob)){
                 $this->osvojeniESPB=$ob;
             }
-            elseif($this->prijavljeniESPB<35 && $ob>=265 && ($this->prijavljeniESPB + $ob)<=300){
+            elseif($this->prijavljeniESPB<35 && $ob>=265 && ($this->prijavljeniESPB + $ob)){
                 $this->osvojeniESPB=$ob;
             }
             else{
                 echo "<p>Ne moze da se PROMENI vrednost osvojenih bodova.</p>";
             }
         }
+        */
 
 
-        public function setOsvojeniESPB2($ob){            
+        public function setOsvojeniESPBopsti($ob){
             if($ob + $this->prijavljeniESPB <=300){
                 $this->osvojeniESPB=$ob;
             }
