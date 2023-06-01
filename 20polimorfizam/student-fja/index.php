@@ -21,7 +21,7 @@
     //echo $ss2->cenaPrijaveIspita() . "<br>";
     //echo $ss2->skolarina() . "<hr>";
 
-    $bs2=new BudzetskiStudent("Jovan Jovanovic(B)",61,10);
+    $bs2=new BudzetskiStudent("Jovan Jovanovic(B)",250,10);
     //echo $bs2->ispis();
     //echo $bs2->cenaPrijaveIspita() . "<br>";
     //echo $bs2->skolarina() . "<hr>";
@@ -29,7 +29,7 @@
     //kreiranje niza
     $studenti=[$ss1,$bs1,$ss2,$bs2];
 
-    /*
+    
     //zadatak 6
     echo "<p><b>Zadatak 6</b></p>";
     echo "<p>Odrediti studenta koji plaća najveću školarinu. </p>";
@@ -73,11 +73,15 @@
 
     function prosecanOdnos($studenti){
         $s=0;
+        $br=0;
         foreach($studenti as $student){
-            $s=$s+($student->skolarina()/$student->getOsvojeniESPB());
+            if($student->getOsvojeniESPB() > 0){
+                $s=$s+($student->skolarina()/$student->getOsvojeniESPB());
+                $br++;
+            }
         }
-        if(count($studenti)>0){
-            return $s/count($studenti);
+        if($br>0){
+            return $s/$br;
         }
         else{
             return 0;
@@ -107,6 +111,6 @@
     }
     echo "<p>Student sa minimalnim brojem bodova koji placa maksimalnu skolarinu: </p>";
     minBodova($studenti)->ispis();
-    */
+    
 
 ?>

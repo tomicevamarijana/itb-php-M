@@ -13,7 +13,7 @@
             $this->setIme($i);
             //$this->setOsvojeniESPB($ob);
             $this->setProsecnaOcena($oc);
-            if($ob<=300){
+            if($ob<=self::ZBIR){
                 $this->osvojeniESPB=$ob;
             }
             else{
@@ -29,7 +29,7 @@
             }
         }
         public function setOsvojeniESPB($ob){ //ovo treba da overridujem u samofinansirajucem, ali treba mi i ovde nezavisno od prijavljenih bodova, jer ovakvo vazi za budzetskog
-            if($ob<=300){
+            if($ob<=self::ZBIR){
                 $this->osvojeniESPB=$ob;
             }
             else{

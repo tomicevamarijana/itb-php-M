@@ -10,13 +10,13 @@
 
         //metode
         public function skolarina(){
-            return (300-$this->osvojeniESPB)*2000;
+            return (Student::ZBIR - $this->osvojeniESPB)*2000;
         }
         public function cenaPrijaveIspita(){
-            if($this->osvojeniESPB%60==0 && $this->osvojeniESPB!=300){ 
+            if($this->osvojeniESPB%60==0 && $this->osvojeniESPB!=Student::ZBIR){ 
                 return 0;
             }
-            elseif($this->osvojeniESPB==300){
+            elseif($this->osvojeniESPB==Student::ZBIR){
                 echo "<p>Student nema vise ispita jer je zavrsio studije.</p>";
             }
             else{
