@@ -84,4 +84,16 @@ VALUES
 -- promena vrednosti polja number_of_visits
 UPDATE `customers` SET `number_of_visits` = '6' WHERE `customers`.`id` = 4;
 
+INSERT INTO tasks
+(task_id, title, start_date, due_date, status, description, priority)
+VALUES
+(1,"Čas iz ITBootcampa","2023-06-02","2023-06-02",1,"Čas iy baza",1),
+(3,"Uradi domaći zadatak","2023-06-02",NULL,1,"Uradi domaći zadatak",1);
+
+INSERT INTO tasks
+(task_id, title, start_date, due_date, status, description, priority)
+VALUES
+(2,"Šetnja","2023-06-02","2023-06-02",1,"Lagana Šetnja",0);
+
+
 
