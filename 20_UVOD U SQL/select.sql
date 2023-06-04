@@ -214,6 +214,7 @@ ORDER BY name;
 SELECT `name` FROM `customers`
 WHERE `salary` > (SELECT AVG(`salary`) FROM `customers` WHERE `state`="Srbija")
 AND `state`="Srbija";
+--mora da se doda i uslov van ugnjezdenog upita, jer nije realno da izbacuje engleze sa platom vecom od srpske prosecne 
 
 
 
