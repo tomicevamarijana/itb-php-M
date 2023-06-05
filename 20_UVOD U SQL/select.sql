@@ -36,7 +36,7 @@ AND `due_date` IS NOT NULL;
 
 SELECT `name`,`address`,`state`,`salary`
 FROM `customers`
-WHERE `salary` BETEWEEN 300 AND 800;
+WHERE `salary` BETWEEN 300 AND 800;
 
 -- Čija je plata između 500,600 ILI 700
 SELECT `name`,`address`,`state`,`salary`

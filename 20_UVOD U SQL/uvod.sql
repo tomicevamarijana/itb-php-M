@@ -19,7 +19,7 @@ CREATE TABLE customers(
     name VARCHAR(20) NOT NULL,
     age TINYINT NOT NULL,
     address CHAR(25),
-    salary DECIMAL(18,20) DEFAULT 500
+    salary DECIMAL(18,2) DEFAULT 500
 );
 
 --proverava da li postoji isto ime, i kreira. ako postoji, ignorise
