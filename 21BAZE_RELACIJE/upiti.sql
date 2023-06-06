@@ -31,7 +31,7 @@ INSERT INTO `korisnici`(`id`,`korisnicko_ime`,`lozinka`) -- smem da izostavim on
 VALUES
 (1,"Pera_peric",1234),
 (2,"mika_mikic",12345),
-(5,"nikola_nikolic",1212);
+(5,"nikola_nikolic",1212); 
 
 INSERT INTO `profili` (`id`, `korisnik_id`, `adresa`) VALUES
 (1,5,"adresa korisnika id=5"),
