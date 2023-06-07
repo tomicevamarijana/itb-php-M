@@ -108,7 +108,7 @@ WHERE `number_of_visits` BETWEEN 10 AND 99
 LIMIT 2;
 
 --sortiranje
-SELECT * FROM `customers` 
+SELECT * FROM `customers`
 ORDER BY `name`;
 
 --sortiranje od starijih ka mladjim

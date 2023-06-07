@@ -1,6 +1,8 @@
 -- kreiranje baze
 CREATE DATABASE `biblioteka` CHARACTER SET utf16 COLLATE utf16_slovenian_ci;
 
+USE `biblioteka`;
+
 -- tabele
 CREATE TABLE `clanovi`(
     `id` INT PRIMARY KEY,

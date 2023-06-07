@@ -23,6 +23,9 @@ ALTER TABLE `customers` DROP `title`;
 -- za menjanje kolone u tabeli
 ALTER TABLE `customers` CHANGE COLUMN `age` `godine` TINYINT NOT NULL;
 
+-- promena imena tabele
+ALTER TABLE `katedra_veza_predavaci` RENAME `nastavnici_veza_katedra`;
+
 
 
 
@@ -48,7 +51,7 @@ CREATE TABLE `profili`(
 -- veza 1:1 
 --korisnici i profili
 
--- podesavanje tabele da je UNIQUE
+-- podesavanje kolone da je UNIQUE
 ALTER TABLE `profili` ADD UNIQUE(`id_korisnik`);
 
 -- dodavanje PRIMARY KEY u postojecu tabelu 

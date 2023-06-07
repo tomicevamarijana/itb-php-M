@@ -44,6 +44,7 @@ INSERT INTO `profili` (`id`, `korisnik_id`, `adresa`) VALUES
 -- promena iz RESTRICT u CASCADE
 ALTER TABLE `profili` DROP FOREIGN KEY `profili_ibfk_1`; ALTER TABLE `profili` ADD CONSTRAINT `profili_ibfk_1` FOREIGN KEY (`korisnik_id`) REFERENCES `korisnici`(`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
+------------------------------------------------------------------------------------------
 -- veza 1:N
 CREATE TABLE `objave`(
     `id` INT PRIMARY KEY,
@@ -76,6 +77,7 @@ INSERT INTO `komentari` (`id`, `objava_id`, `komentar`) VALUES
 INSERT INTO `komentari` (`id`, `objava_id`, `komentar`) VALUES
 (104,100, 'Komentar 1 za objavu 100');
 
+-----------------------------------------------------------------------------------
 -- veza N:M
 CREATE TABLE `kategorije`(
     `id` INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
