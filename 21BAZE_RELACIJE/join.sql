@@ -63,7 +63,7 @@ WHERE studenti.ime="Marijana" AND studenti.prezime="Tomic";
 -- 6 Za dat naziv predmeta odrediti maksimalnu ocenu na nekom ispitu iz tog predmeta.
 SELECT MAX(ispiti.ocena) FROM ispiti
 LEFT JOIN predmeti ON ispiti.predmet_id=predmeti.id
-WHERE predmeti.naziv="PHP";
+WHERE predmeti.naziv="PHP"; -- treba i datum jer se php polagao dvaput
 -- ili
 SELECT ispiti.ocena FROM ispiti
 LEFT JOIN predmeti ON ispiti.predmet_id=predmeti.id
@@ -74,13 +74,6 @@ LIMIT 1;
 -- 7 Za dat datum odrediti prosečnu ocenu svih ispita koji su se polagali u toj godini.
 SELECT AVG(ocena) FROM ispiti
 WHERE year(datum) = year("2023-04-17");
-
-
-
-
-
-
-
 
 
 

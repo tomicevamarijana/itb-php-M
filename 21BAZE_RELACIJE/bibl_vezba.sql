@@ -148,5 +148,21 @@ INSERT INTO `pisac_veza_knjiga` VALUES
 (2,2),
 (1,3);
 
+SELECT * FROM product_categories 
+LEFT JOIN products ON product_categories.id_product=products.id
+LEFT JOIN categories ON product_categories.id_category=categories.id;
+--
+SELECT MAX(products.price) FROM product_categories 
+LEFT JOIN products ON product_categories.id_product=products.id
+LEFT JOIN categories ON product_categories.id_category=categories.id
+WHERE categories.category_name="Garden";
+
+SELECT products.product_name AS najskuplji_proizvod, products.price AS cena FROM product_categories 
+LEFT JOIN products ON product_categories.id_product=products.id
+LEFT JOIN categories ON product_categories.id_category=categories.id
+WHERE categories.category_name="Garden"
+ORDER BY products.price DESC
+LIMIT 1;
+
 
 

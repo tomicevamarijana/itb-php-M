@@ -96,8 +96,40 @@ LEFT JOIN `predmeti` ON `ispiti`.`predmet_id`=`predmeti`.`id`
 LEFT JOIN `nastavnici` ON `ispiti`.`nastavnik_id`=`nastavnici`.`id`
 WHERE studenti.ime='Marijana' AND studenti.prezime="Tomic" AND ispiti.ocena>=6;
 
+-- Za dato ime i prezime studenta, ispisati sve ispite koje je polagao dati student.
+-- zad 3 - bolji nacin
+SELECT CONCAT(studenti.ime, " ", studenti.prezime) AS `student`, 
+`predmeti`.`naziv`,
+CONCAT(nastavnici.ime, " ", nastavnici.prezime) AS `nastavnik`,
+`ispiti`.`datum`,
+`ispiti`.`ocena`
+FROM `ispiti`
+LEFT JOIN `studenti` ON `ispiti`.`student_indeks`=`studenti`.`indeks`
+LEFT JOIN `predmeti` ON `ispiti`.`predmet_id`=`predmeti`.`id`
+LEFT JOIN `nastavnici` ON `ispiti`.`nastavnik_id`=`nastavnici`.`id`
+WHERE studenti.ime='Marijana' AND studenti.prezime="Tomic";
 
+-- beti, posle testa
 
+--------------------------------------------------------------------
+-- Za dat datum i nastavnika odrediti prosečnu ocenu svih ispita
+-- koji su se polagali tog dana a koje je ocenio taj nastavnik.
+SELECT AVG(ispiti.ocena) as prosecna_ocena FROM ispiti
+LEFT JOIN nastavnici ON ispiti.nastavnik_id=nastavnici.id
+WHERE ispiti.datum="2023-04-17"
+AND nastavnici.ime="Stefan"
+AND ispiti.ocena>5;
+
+-- za dati datum ispisati imena i prezimena studenata koji nisu 
+-- polagali ispit tog dana
+-- probaj ovo sama
+SELECT * FROM studenti 
+WHERE studenti.indeks NOT IN (SELECT ispiti.student_indeks from ispiti where ispiti.datum="2023-05-18");
+
+-- drugi nacin
+SELECT CONCAT(`studenti`.`ime`, " ", `studenti`.`prezime`) AS `student` FROM `studenti`
+LEFT JOIN `ispiti` ON `ispiti`.`student_indeks`=`studenti`.`indeks` AND `ispiti`.`datum`='2023-05-18'
+WHERE `ispiti`.`id` IS NULL;
 
 
 
