@@ -110,7 +110,7 @@
         return maksSkolarina($minBodoviNiz);
     }
     echo "<p>Student sa minimalnim brojem bodova koji placa maksimalnu skolarinu: </p>";
-    minBodova($studenti)->ispis();
+    minBodova($studenti)->ispis();   
     
 
 ?>

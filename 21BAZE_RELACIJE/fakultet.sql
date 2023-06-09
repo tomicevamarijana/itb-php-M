@@ -131,7 +131,8 @@ SELECT CONCAT(`studenti`.`ime`, " ", `studenti`.`prezime`) AS `student` FROM `st
 LEFT JOIN `ispiti` ON `ispiti`.`student_indeks`=`studenti`.`indeks` AND `ispiti`.`datum`='2023-05-18'
 WHERE `ispiti`.`id` IS NULL;
 
-
+-- 
+CREATE USER 'admin'@'localhost' IDENTIFIED VIA mysql_native_password USING '***';GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
 
 
 
