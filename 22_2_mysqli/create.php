@@ -1,8 +1,11 @@
 <?php
 require_once 'connection.php';
 
+//niz eror poruka
 $errMsg=[];
 
+//hvatanje iz POST
+//kad se klikne na dugme sacuvaj, da, jesmo dosli preko POST
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $ime=trim($_POST['ime']);
     $prezime=trim($_POST['prezime']);
@@ -35,38 +38,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
 
 
+    
 
 
 
-    //SA CASA STARO
-    //validacija imena
-    /*
-    if(empty($ime)){
-        $errMsg['ime']='Ime je obavezno polje';
-    }
-    elseif(preg_match("~[0-9]+~",$ime)){
-        $errMsg['ime']='U polju ime nije dozvoljen unos cifara';
-    }
-    */
-
-    //validacija prezimena
-    //validacija email-a
-    //validacija broja telefona
-
-    /*
-    if(count($errMSG)==0){
-        //forma validna
-        $q="INSERT INTO studenti VALUES ('".$ime."', '" . $prezime ."','" . $email . "','".$broj_telefona . "')";
-        
-    }
-    */
 
     echo "<p>Uneli ste ime: $ime.</p>";
-} //php server mora
 
-
-
-
+}
 
 ?>
 <!doctype html>
@@ -90,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 <div class="card">
                     <div class="card-header">
                         <h4>Student: unos</h4>
-                    </div> 
+                    </div>
                     <div class="card-body">
                         <form action="#" method="post">
                             <div class="form-group mb-3">
@@ -113,8 +92,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                                 <button type="submit" class="btn btn-success">Sacuvaj</button>
                                 <a href="index.php" class="btn btn-secondary">Otkazi</a>
                             </div>
+
                         </form>
-                        
                     </div>
                 </div>
             </div>
