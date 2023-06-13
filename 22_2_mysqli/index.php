@@ -46,7 +46,7 @@
                                         echo "<p>NEMA UNETIH PODATAKA</p>";
                                     }
                                     else{
-                                        //prikaz selecta
+                                        //prikaz selecta, u a href koristimo get metodu (transparentan link)
                                         while($row=$res->fetch_assoc()){
                                             ?>
                                             <tr>

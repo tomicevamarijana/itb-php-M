@@ -131,8 +131,20 @@
     
 
 
+    
 
 
+
+
+    echo "<hr>";
+    //SLOZENI UPITI sa alijasima
+    $upit3="SELECT `id`, CONCAT(`ime`,' ',`prezime`) AS `ime_prezime` FROM `studenti`;";
+    $result3=$conn->query($upit3);
+    $arr=$result3->fetch_all(MYSQLI_ASSOC);
+    foreach($arr as $row){
+        echo "<p>Id: ". $row['id'] . " ime: " . $row['ime_prezime'] . "</p>";
+    }
+    
 
 
     //$conn->query($upit2);

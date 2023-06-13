@@ -4,11 +4,31 @@ require_once 'connection.php';
 //niz eror poruka,
 //asoc niz, kljucevi su ime, prezime..tj name inputa, a vrednost su poruke
 $errMsg=[];
-$ime=$prezime=$email=$broj_telefona=""; //zbog value u inputu labeli
+$id=$ime=$prezime=$email=$broj_telefona=""; //zbog value u inputu labeli
+
+//NOVO ZA EDIT
+//kad kliknem na dugme IZMENI u index.php, GETom dolazim na edit.php
+if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['id'])){
+    $id=$_GET['id'];
+    $q="SELECT * FROM `studenti` WHERE `id`=". $id .";";
+    $r=$conn->query($q);
+    if($r->num_rows==1){
+        $student=$r->fetch_assoc();
+        $ime=$student['ime'];
+        $prezime=$student['prezime'];
+        $email=$student['email'];
+        $broj_telefona=$student['broj_telefona'];
+    } //ove promenljice idu u value u inputu
+    else{
+        echo "<p>Doslo je do greske.</p>";
+    }
+
+}
 
 //hvatanje iz POST
 //kad se klikne na dugme sacuvaj, da, jesmo dosli preko POST
 if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $id=$_POST['id']; //DODATO,iz hidden
     $ime=trim($_POST['ime']);
     $prezime=trim($_POST['prezime']);
     $email=trim($_POST['email']);
@@ -45,16 +65,28 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     
     //FORMA VALIDNA UPISI PODATKE U BAZU-betino, ispravila u medjuvremenu
     if(count($errMsg)==0){
+        $q = "UPDATE `studenti` SET
+        `ime`='" . $ime . "',
+        `prezime`='" . $prezime . "',
+        `email`=" . ($email?("'".$email."'"):"null") . ",
+        `broj_telefona`=" . ($broj_telefona?("'" . $broj_telefona . "'"):"null") . "
+        WHERE `id`=" . $id . ";"; 
+        //id mi se nalazi u $_GET['id'] i ne mogu da mu pridjem, a treba mi i u POST (value u hidden)
+
+        //kod create.php se radilo INSERT, ali u edit.php UPDATE
+        /*
         $q = "INSERT INTO `studenti` (`ime`, `prezime`, `email`, `broj_telefona`) VALUES 
         ('" . $ime . "', '" . $prezime . "', " 
         . ($email?("'".$email."'"):"null") . ", " 
         . ($broj_telefona?("'".$broj_telefona."'"):"null") . ");";
+        */
 
         $r = $conn->query($q);
         if($r){
-            //uspesno dodat student prebaci ga na index.php
+            //uspesno izmenjen, student prebaci ga na index.php
             header("location:index.php");
             //ovo znaci da me vraca na index.php,redirekcija iz php
+            exit();
         }else{
             //doslo je do greske
             echo "<p>Doslo je do greske.</p>";
@@ -82,7 +114,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <title>Unos</title>
+    <title>Izmena</title>
 </head>
 <body>
 
@@ -91,11 +123,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Student: unos</h4>
+                        <h4>Student: izmena</h4>
                     </div>
                     <div class="card-body"> 
                         
                         <form action="#" method="post">
+                            <input type="hidden" name="id" value="<?php echo $id; ?>">                             
                             <div class="form-group mb-3">
                                 <label>Ime: </label>
                                 <input type="text" name="ime" class="form-control <?php if(isset($errMsg['ime'])) echo "is-invalid"; ?>" value="<?php echo $ime; ?>" >

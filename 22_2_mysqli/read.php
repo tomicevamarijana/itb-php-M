@@ -1,5 +1,29 @@
 <?php
 require_once 'connection.php';
+
+$ime=$prezime=$email=$broj_telefona="";
+
+if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['id'])){
+    $id=$_GET['id'];
+    //isto kao u edit, samo ne popunjavam formu nego paragrafe
+    
+    $q="SELECT * FROM `studenti` WHERE `id`=". $id .";";
+    $r=$conn->query($q);
+    if($r->num_rows==1){
+        $student=$r->fetch_assoc();
+        $ime=$student['ime'];
+        $prezime=$student['prezime'];
+        $email=$student['email'];
+        $broj_telefona=$student['broj_telefona'];
+    } //ove promenljice idu u value u inputu
+    else{
+        echo "<p>Doslo je do greske.</p>";
+    }
+    
+}
+
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,6 +51,9 @@ require_once 'connection.php';
                         </h4>
                     </div>
                     <div class="card-body">
+                        <p><strong>Ime i prezime:</strong> <?php echo $ime." ".$prezime?> </p>
+                        <p><strong>Email:</strong> <?php echo $email?$email:"Nema podataka o emailu."; ?> </p>
+                        <p><strong>Broj telefona:</strong> <?php echo $broj_telefona?$broj_telefona:"--"; ?> </p>                 
 
                     </div>
                 </div>
