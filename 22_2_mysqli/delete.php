@@ -6,7 +6,7 @@ if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['id'])){
     $id=$_GET['id'];
     //mozete da izvadite dodtne podatke o studentu i prikazete pre brisanja..
     //pa iskoristimo u formi Da li zelite da obrisete tog i tog...
-}
+} //da nemam hidden u formi, drugacije ne bi mogla da izvucem id
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $id=$_POST['id'];
     //nema validacija za id
