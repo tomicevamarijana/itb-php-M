@@ -13,7 +13,7 @@
         }
         //trazi razmak, na pocetku i kraju delimiteri, izmedju ono sto trazim. za space kod je \s
         elseif(preg_match('/\s/',$u)){
-            return "Username cannot contain spaces.";            
+            return "Username cannot contain spaces.";
         }
         //ispitujem duzine
         elseif(strlen($u)<5 || strlen($u)>25){

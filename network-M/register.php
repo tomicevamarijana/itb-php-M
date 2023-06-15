@@ -61,32 +61,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register new user</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-    <h1>Register to our site</h1>
-    <form action="register.php" method="POST">
-        <p>
-            <label for="username">Username: </label>
-            <input type="text" name="username" id="username" value="<?php echo $username; ?>">
-            <span class=error>* <?php echo $usernameError; ?></span>
-        </p>
-        <p>
-            <label for="password">Password: </label>
-            <input type="password" name="password" id="password" value="">
-            <span class=error>* <?php echo $passwordError; ?></span>
-        </p>
-        <p>
-            <label for="retype">Retype password:</label>
-            <input type="password" name="retype" id="retype" value="">
-            <span class=error>* <?php echo $retypeError; ?></span>
-        </p>
-        <p>
-            <input type="submit" value="Register me!">
-        </p>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h1>Register to our site</h1>
+                    </div>
+                    <div class="card-body">
 
-    </form>
+                        <form action="register.php" method="POST">
+                            <div class="form-group mb-3">
+                                <label for="username">Username: </label>
+                                <input type="text" name="username" id="username" class="form-control" value="<?php echo $username; ?>">
+                                <span class=error>* <?php echo $usernameError; ?></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="password">Password: </label>
+                                <input type="password" name="password" id="password" class="form-control" value="">
+                                <span class=error>* <?php echo $passwordError; ?></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="retype">Retype password:</label>
+                                <input type="password" name="retype" id="retype" class="form-control" value="">
+                                <span class=error>* <?php echo $retypeError; ?></span>
+                            </div>
+                            <div class="float-end">
+                                <input type="submit" class="btn btn-success" value="Register me!">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
