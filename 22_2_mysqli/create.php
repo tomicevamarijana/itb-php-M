@@ -87,47 +87,47 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 <body>
 
     <div class="container mt-5">
-    <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Student: unos</h4>
-                    </div>
-                    <div class="card-body"> 
-                        
-                        <form action="#" method="post">
-                            <div class="form-group mb-3">
-                                <label>Ime: </label>
-                                <input type="text" name="ime" class="form-control <?php if(isset($errMsg['ime'])) echo "is-invalid"; ?>" value="<?php echo $ime; ?>" >
-                                <span class="invalid-feedback"><?php if(isset($errMsg['ime'])) echo $errMsg['ime']; ?></span>
-                            </div>                            
-                            <div class="form-group mb-3">
-                                <label>Prezime: </label>
-                                <input type="text" name="prezime" class="form-control <?php if(isset($errMsg['prezime'])) echo "is-invalid"; ?>" value="<?php echo $prezime; ?>" >
-                                <span class="invalid-feedback"><?php if(isset($errMsg['prezime'])) echo $errMsg['prezime']; ?></span>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Email: </label>
-                                <input type="text" name="email" class="form-control <?php if(isset($errMsg['email'])) echo "is-invalid"; ?>" value="<?php echo $email; ?>" >
-                                <span class="invalid-feedback"><?php if(isset($errMsg['email'])) echo $errMsg['email']; ?></span>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Broj telefona: </label>
-                                <input type="text" name="broj_telefona" class="form-control <?php if(isset($errMsg['broj_telefona'])) echo "is-invalid"; ?>" value="<?php echo $broj_telefona; ?>" >
-                                <span class="invalid-feedback"><?php if(isset($errMsg['broj_telefona'])) echo $errMsg['broj_telefona']; ?></span>
-                            </div>
-                            <div class="float-end">
-                                <button type="submit" class="btn btn-success">Sacuvaj</button>
-                                <a href="index.php" class="btn btn-secondary">Otkazi</a>
-                            </div>
+        <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Student: unos</h4>
+                        </div>
+                        <div class="card-body"> 
+                            
+                            <form action="#" method="post">
+                                <div class="form-group mb-3">
+                                    <label>Ime: </label>
+                                    <input type="text" name="ime" class="form-control <?php if(isset($errMsg['ime'])) echo "is-invalid"; ?>" value="<?php echo $ime; ?>" >
+                                    <span class="invalid-feedback"><?php if(isset($errMsg['ime'])) echo $errMsg['ime']; ?></span>
+                                </div>                            
+                                <div class="form-group mb-3">
+                                    <label>Prezime: </label>
+                                    <input type="text" name="prezime" class="form-control <?php if(isset($errMsg['prezime'])) echo "is-invalid"; ?>" value="<?php echo $prezime; ?>" >
+                                    <span class="invalid-feedback"><?php if(isset($errMsg['prezime'])) echo $errMsg['prezime']; ?></span>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label>Email: </label>
+                                    <input type="text" name="email" class="form-control <?php if(isset($errMsg['email'])) echo "is-invalid"; ?>" value="<?php echo $email; ?>" >
+                                    <span class="invalid-feedback"><?php if(isset($errMsg['email'])) echo $errMsg['email']; ?></span>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label>Broj telefona: </label>
+                                    <input type="text" name="broj_telefona" class="form-control <?php if(isset($errMsg['broj_telefona'])) echo "is-invalid"; ?>" value="<?php echo $broj_telefona; ?>" >
+                                    <span class="invalid-feedback"><?php if(isset($errMsg['broj_telefona'])) echo $errMsg['broj_telefona']; ?></span>
+                                </div>
+                                <div class="float-end">
+                                    <button type="submit" class="btn btn-success">Sacuvaj</button>
+                                    <a href="index.php" class="btn btn-secondary">Otkazi</a>
+                                </div>
 
-                        </form> 
+                            </form> 
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
        
     </div>
     
