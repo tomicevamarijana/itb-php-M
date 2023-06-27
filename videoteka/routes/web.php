@@ -29,3 +29,11 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Auth::routes([
+    'register'=>false,
+    'reset'=>false,
+    'verify'=>false
+    ]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
