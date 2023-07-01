@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App; //dodato sa slajda 4 prez 7
+//use Illuminate\Support\Facades\App; //dodato sa slajda 4 prez 7
 
 
 /*
@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\App; //dodato sa slajda 4 prez 7
 //30.06. u 18:30h
 Route::get('/lang/{locale}', function (string $locale)
 {
-    App::setLocale($locale);
+    //App::setLocale($locale);
     session(['locale' => $locale]); //prosledjuje se putem sesije
     
 
