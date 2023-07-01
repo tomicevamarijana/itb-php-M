@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App; //dodato sa slajda 4 prez 7
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,20 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//dodato, jer nam lokalizacija treba i pre nego sto je korisnik logovan
+//van grupe i middleware
+//definise se promenljiva parametar {locale}, koja je niz ciji su clanoci en ili sr
+//ruta:hocu dva linka koja ce get metodom pozivati jednu od dve rute
+//string $locale je promenljiva, i mora biti ista kao parametar
+//30.06. u 18:30h
+Route::get('/lang/{locale}', function (string $locale)
+{
+    App::setLocale($locale);
+    session(['locale' => $locale]); //prosledjuje se putem sesije
+    
+
+    return redirect()->back(); //vracamo na prethodnu str, ne treba negde dalje
+})->whereIn('locale', ['en', 'sr'])->name('lang');
 
 Route::get('/', function () {
     return view('welcome');
