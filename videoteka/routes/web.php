@@ -3,7 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 //use Illuminate\Support\Facades\App; //dodato sa slajda 4 prez 7
-
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\PersonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //dodate - za prikaz podataka o zanru, bitno da je kor.logovan
+    Route::get('/genre', [GenreController::class, 'index'])
+    ->name('genre.index');
+    //ruta za prikaz svih podataka o people
+    Route::get('/person', [PersonController::class, 'index'])
+    ->name('person.index');
+
+
+
 });
 
 require __DIR__.'/auth.php';
