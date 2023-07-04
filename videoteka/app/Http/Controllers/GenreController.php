@@ -24,7 +24,10 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        //pripremamo formu za unos
+        //strane kljuceve ugl prikacujemo u select, radio button
+        //ovde ne trazimo nista iz baze, samo return
+        return view('genre.create');
     }
 
     /**
@@ -32,7 +35,30 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // u request su svi podaci koji su formom (post) poslati
+        //kljuc u funkciji validate 'name_en' je name atribut u inputu forme
+        $request->validate([
+            'name_en' => 'required|unique:genres,name_en',
+            'name_sr' => 'nullable|unique:genres,name_sr'
+        ]);
+         
+        //ovo se izvrsava, kada kod prodje validaciju
+
+        //1.nacin preko asoc.niza(sva fillable polja, ali moze bez id),moze da ima vise, ne i manje
+        //Genre::create(['name_en'=>'mistery', 'name_sr'=>'misterija']);
+        
+        //2.nacin - instanca klase
+        /*
+        $g=new Genre;
+        $g->id=5;
+        $g->name_en='Mistery';
+        $g->name_sr='Misterija';
+        $g->save();
+        */
+
+        //3.nacin
+        Genre::create($request->all()); 
+        return redirect()->route('genre.index');            
     }
 
     /**

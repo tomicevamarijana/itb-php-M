@@ -4,6 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <!-- dodato dugme -->
+            <div class="row">
+                <a href="{{ route('genre.create') }}" class="btn btn-primary mb-2">{{ __('Add') }}</a>
+            </div>
+
             <div class="card">
                 <div class="card-header">{{ __('Genres') }}</div>
 

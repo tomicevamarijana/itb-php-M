@@ -10,6 +10,9 @@
     "Genres":"Zanrovi",
     "Name EN":"Naziv EN",
     "Name SR":"Naziv SR",
-    "Settings":"Administracija"
+    "Settings":"Administracija",
+    "Add":"Dodaj",
+    "Save":"Sacuvaj",
+    "Cancel":"Otkazi"
 
 }
