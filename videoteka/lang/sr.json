@@ -6,6 +6,10 @@
     "Remember Me":"Zapamti me",
     "Logout" : "Odjavi me",
     "You are logged in!" : "Uspesno ste logovani!",
-    "Dashboard":"Kontrolna Tabla"
+    "Dashboard":"Kontrolna Tabla",
+    "Genres":"Zanrovi",
+    "Name EN":"Naziv EN",
+    "Name SR":"Naziv SR",
+    "Settings":"Administracija"
 
 }

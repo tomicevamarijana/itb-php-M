@@ -15,7 +15,8 @@ class GenreController extends Controller
         $data=Genre::all(); //preko modela dobavljeni svi podaci iz baze
         //sada proslediti to ka view
 
-        return view('genre.index',['data'=>$data]);
+        return view('genre.index',['data'=>$data]); 
+        //u blade.php. se sluzim imenom koje je kljuc asoc.niza
     }
 
     /**
