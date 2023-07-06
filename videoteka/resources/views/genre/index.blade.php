@@ -28,7 +28,9 @@
                                 <td>{{$g->id}}</td>
                                 <td>{{$g->name_en}}</td>
                                 <td>{{$g->name_sr}}</td>
-                                <td></td>
+                                <td>
+                                    <a href="{{ route('genre.edit',['genre'=>$g->id]) }}" class="btn btn-success btn-sm">{{ __('Edit') }}</a>
+                                </td>
                             </tr>
                         @endforeach
                             

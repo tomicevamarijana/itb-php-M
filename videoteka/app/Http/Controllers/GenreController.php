@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Genre;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class GenreController extends Controller
 {
@@ -56,7 +57,8 @@ class GenreController extends Controller
         $g->save();
         */
 
-        //3.nacin
+        //3.nacin 
+        // prihvati sve parametre iz request, menja prva dva nacina
         Genre::create($request->all()); 
         return redirect()->route('genre.index');            
     }
@@ -72,9 +74,14 @@ class GenreController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+    //$genre=Genre::find($request->input('id')) //u pozadnini se ovo radi, bez obzira koji je parametar rute
     public function edit(Genre $genre)
     {
-        //
+        //edit slicno kao create, vodi na formu ali popunjenu
+        return view('genre.edit',compact('genre'));
+        //isto je i sledece: (2 nacina prosledjivanja parametra view-u)
+        //return view('genre.edit',['genre'=>$genre]);
+
     }
 
     /**
@@ -82,7 +89,25 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        //
+        // menja se model iz parametra, a u requestu su podaci sa forme
+        //prvo validator
+        //prvo validator
+        $request->validate([
+            'name_en' => ['required',
+            //'unique:genres,name_en'
+            Rule::unique('genres','name_en')->ignore($genre->id)
+        ],
+            'name_sr' => ['nullable',
+            //'unique:genres,name_sr'
+            Rule::unique('genres','name_sr')->ignore($genre->id)
+            ]
+        ]);
+
+        $genre->update($request->all()); 
+        //request all vraca asoc.niz editovanih podataka iz forme
+        
+        return redirect()->route('genre.index'); 
+        
     }
 
     /**

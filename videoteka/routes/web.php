@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
     //dodate - za prikaz podataka o zanru, bitno da je kor.logovan
     Route::get('/genre', [GenreController::class, 'index'])
     ->name('genre.index');
+
     //za dodavanje novog zanra
     Route::get('/genre/create', [GenreController::class, 'create'])
     ->name('genre.create');
@@ -54,6 +55,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/genre', [GenreController::class, 'store'])
     ->name('genre.store');
 
+    //forma za izmenu podatka
+    Route::get('/genre/{genre}/edit', [GenreController::class, 'edit'])
+    ->name('genre.edit');
+    //izmena postojećeg podatka
+    Route::put('/genre/{genre}', [GenreController::class, 'update'])
+    ->name('genre.update');
+
+    //create priprema formu, store cuva podatak
+    //edit priprema formu, update menja podatak
     
 
     //ruta za prikaz svih podataka o people
